@@ -3,326 +3,1168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alexander Taborda — Marca Personal</title>
+<title>Proyecto +TER — Documento Unificado · Sistema para el Desarrollo Territorial Rural</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--black:#000000;--white:#FFFFFF;--sans:'Archivo','Helvetica Neue',Arial,sans-serif;--mono:'JetBrains Mono','Courier New',monospace}
+:root{
+  --black:#000000;--white:#FFFFFF;
+  --sans:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--white);color:var(--black);-webkit-font-smoothing:antialiased;line-height:1}
+
+/* ── NAV ─────────────────────────────────────────────── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--white);border-bottom:1px solid var(--black);height:52px;display:flex;align-items:center;padding:0 48px;justify-content:space-between}
-.nav-wordmark{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--black);text-decoration:none}
-.nav-mono{font-family:var(--mono);font-size:10px;font-weight:300;opacity:.3;letter-spacing:.06em}
-.nav-right{display:flex;align-items:center;gap:28px}
-.nav-link{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--black);text-decoration:none;opacity:.4;transition:opacity .1s}
-.nav-link:hover{opacity:1}
-.nav-cta{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--white);background:var(--black);padding:8px 20px;text-decoration:none;transition:opacity .15s}
-.nav-cta:hover{opacity:.7}
-.hero{padding-top:52px;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--black)}
-.hero-text{padding:80px 48px 64px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--black)}
-.hero-label{font-family:var(--mono);font-size:10px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;opacity:.35;margin-bottom:48px;display:flex;align-items:center;gap:10px}
-.hero-label::before{content:'01';font-size:9px;opacity:.3}
-.hero-name{font-size:clamp(72px,10vw,144px);font-weight:900;letter-spacing:-.04em;line-height:.88;text-transform:uppercase;color:var(--black);margin-bottom:28px}
-.hero-ter-badge{display:inline-flex;align-items:center;border:2px solid var(--black);margin-bottom:40px;overflow:hidden}
-.hero-ter-badge img{height:clamp(36px,5vw,56px);width:auto;display:block}
-.hero-role-line{font-size:clamp(11px,1.3vw,15px);font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.45;line-height:1.65;margin-bottom:40px}
-.hero-statement{font-size:clamp(15px,1.8vw,21px);font-weight:300;line-height:1.65;max-width:460px;border-left:3px solid var(--black);padding-left:24px;margin-bottom:48px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:13px 28px;text-decoration:none;border:1.5px solid;transition:all .1s;display:inline-block}
-.btn-fill{background:var(--black);color:var(--white);border-color:var(--black)}
-.btn-fill:hover{background:var(--white);color:var(--black)}
-.btn-line{background:transparent;color:var(--black);border-color:var(--black)}
-.btn-line:hover{background:var(--black);color:var(--white)}
-.hero-visual{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 48px;gap:36px}
-.hero-portrait{width:clamp(180px,24vw,300px);height:clamp(180px,24vw,300px);border-radius:50%;overflow:hidden;border:2px solid var(--black)}
-.hero-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:contrast(1.15) grayscale(100%);display:block}
-.eco-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:300px}
-.eco-b{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid var(--black);padding:6px 12px;color:var(--black)}
-.eco-b-fill{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:var(--black);color:var(--white);padding:6px 12px;border:1.5px solid var(--black)}
-.hero-loc{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;opacity:.25}
-.sec-hdr{display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid var(--black);background:var(--white)}
-.sec-num{padding:28px 20px;border-right:1px solid var(--black);font-family:var(--mono);font-size:10px;font-weight:300;opacity:.25;letter-spacing:.1em;display:flex;align-items:flex-start}
-.sec-title-wrap{padding:28px 48px}
-.sec-title{font-size:clamp(24px,4vw,52px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.92;color:var(--black)}
-.sec-sub{font-family:var(--mono);font-size:10px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;opacity:.3;margin-top:8px}
-.data-row{display:grid;grid-template-columns:220px 1fr;border-bottom:1px solid rgba(0,0,0,.08);min-height:64px;transition:background .1s}
-.data-row:hover{background:#f8f8f8}
-.dr-key{padding:22px 24px 22px 48px;border-right:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;justify-content:flex-start;gap:3px}
-.dr-key-label{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;opacity:.3}
-.dr-key-value{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.dr-val{padding:22px 48px;font-size:13.5px;font-weight:300;line-height:1.75;color:var(--black);display:flex;align-items:flex-start}
-.formula-arch{display:grid;grid-template-columns:repeat(3,1fr) 2px 1.3fr;border-bottom:1px solid var(--black)}
-.fv{padding:40px 32px;border-right:1px solid rgba(0,0,0,.1);display:flex;flex-direction:column;gap:10px;transition:background .1s}
+.nav-name{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--black)}
+.nav-mono{font-family:var(--mono);font-size:9px;font-weight:300;opacity:.28;letter-spacing:.06em}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nl{font-family:var(--mono);font-size:10px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:var(--black);text-decoration:none;opacity:.3;transition:opacity .1s}
+.nl:hover{opacity:1}
+
+/* ── COVER ───────────────────────────────────────────── */
+.cover{padding-top:52px;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--black)}
+.cover-l{padding:80px 48px 64px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--black)}
+.cover-eyebrow{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;opacity:.28;margin-bottom:48px;display:flex;align-items:center;gap:12px}
+.cover-eyebrow::before{content:'//';opacity:.4;font-weight:500}
+.cover-title{font-size:clamp(60px,9vw,130px);font-weight:900;letter-spacing:-.04em;line-height:.88;text-transform:uppercase;margin-bottom:24px}
+.cover-ter{display:inline-flex;align-items:center;background:var(--black);padding:8px 18px 8px 12px;margin-bottom:32px;overflow:hidden}
+.cover-ter img{height:clamp(32px,4.5vw,52px);width:auto;display:block}
+.cover-claim{font-size:clamp(14px,1.8vw,19px);font-weight:300;line-height:1.65;max-width:440px;border-left:3px solid var(--black);padding-left:20px;margin-bottom:48px}
+.cover-meta{display:flex;flex-direction:column;gap:8px}
+.cm-row{display:flex;align-items:baseline;gap:14px}
+.cm-l{font-family:var(--mono);font-size:9px;font-weight:300;opacity:.28;letter-spacing:.14em;text-transform:uppercase;min-width:88px}
+.cm-v{font-size:12px;font-weight:600;letter-spacing:.03em}
+.cover-r{background:var(--black);padding:80px 48px;display:flex;flex-direction:column;justify-content:space-between}
+.toc-label{font-family:var(--mono);font-size:9px;font-weight:300;color:var(--white);opacity:.22;letter-spacing:.22em;text-transform:uppercase;margin-bottom:32px}
+.toc-item{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none;transition:background .1s;margin:0 -48px;padding-left:48px;padding-right:48px}
+.toc-item:hover{background:rgba(255,255,255,.05)}
+.ti-n{font-family:var(--mono);font-size:10px;font-weight:300;color:var(--white);opacity:.18;min-width:28px}
+.ti-name{font-size:13px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:.04em}
+.ti-sub{font-family:var(--mono);font-size:10px;font-weight:300;color:var(--white);opacity:.25;margin-left:auto;white-space:nowrap;padding-right:16px}
+.cover-quote{font-family:var(--mono);font-size:10px;font-weight:300;color:var(--white);opacity:.16;line-height:1.9;letter-spacing:.04em;border-top:1px solid rgba(255,255,255,.06);padding-top:28px;margin-top:16px}
+
+/* ── SECTION HEADERS ─────────────────────────────────── */
+.shdr{display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid var(--black);border-top:2px solid var(--black)}
+.sn{padding:28px 20px;border-right:1px solid var(--black);font-family:var(--mono);font-size:9px;font-weight:300;opacity:.2;letter-spacing:.1em;display:flex;align-items:flex-start}
+.stw{padding:28px 48px}
+.stitle{font-size:clamp(22px,4vw,48px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.92}
+.sdesc{font-family:var(--mono);font-size:10px;font-weight:300;opacity:.28;letter-spacing:.16em;text-transform:uppercase;margin-top:10px}
+
+/* ── ANALOGY BAR ─────────────────────────────────────── */
+.abar{background:var(--black);padding:18px 48px;display:flex;align-items:center;gap:14px}
+.abar-text{font-family:var(--mono);font-size:10px;font-weight:300;color:var(--white);opacity:.45;letter-spacing:.04em;font-style:italic;line-height:1.6}
+.abar-text strong{color:var(--white);opacity:1;font-weight:500;font-style:normal}
+
+/* ── DATA ROW ────────────────────────────────────────── */
+.drow{display:grid;grid-template-columns:220px 1fr;border-bottom:1px solid rgba(0,0,0,.08);min-height:64px;transition:background .1s}
+.drow:hover{background:#f8f8f8}
+.drow:last-child{border-bottom:none}
+.dk{padding:22px 24px 22px 48px;border-right:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;justify-content:center;gap:3px}
+.dk-tag{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;opacity:.28}
+.dk-val{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.dv{padding:22px 48px;font-size:13.5px;font-weight:300;line-height:1.75}
+.dv strong{font-weight:700}
+.dv em{font-style:normal;font-weight:600;border-bottom:1.5px solid var(--black);padding-bottom:1px}
+
+/* ── THREE COLUMNS ───────────────────────────────────── */
+.tri{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--black)}
+.tri-col{padding:40px 36px;border-right:1px solid rgba(0,0,0,.1);display:flex;flex-direction:column;gap:13px}
+.tri-col:last-child{border-right:none}
+.tc-n{font-family:var(--mono);font-size:9px;font-weight:300;opacity:.2;letter-spacing:.2em}
+.tc-tag{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;opacity:.32}
+.tc-title{font-size:clamp(15px,1.9vw,20px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
+.tc-body{font-size:12.5px;font-weight:300;line-height:1.75;opacity:.72}
+.tc-body strong{font-weight:700;opacity:1;color:var(--black)}
+.tc-body em{font-style:normal;font-weight:600}
+
+/* ── TWO COLUMNS ─────────────────────────────────────── */
+.dual{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--black)}
+.dc{padding:44px 44px;border-right:1px solid rgba(0,0,0,.1)}
+.dc:last-child{border-right:none}
+.dc-tag{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;opacity:.28;margin-bottom:16px;display:block}
+.dc-title{font-size:clamp(16px,2vw,22px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1;margin-bottom:14px}
+.dc-body{font-size:13px;font-weight:300;line-height:1.78;opacity:.72}
+.dc-body strong{font-weight:700;opacity:1}
+.dc-body em{font-style:normal;font-weight:600}
+
+/* ── FORMULA ROW ─────────────────────────────────────── */
+.frow{display:grid;grid-template-columns:repeat(3,1fr) 2px 1.4fr;border-bottom:1px solid var(--black)}
+.fv{padding:36px 28px;border-right:1px solid rgba(0,0,0,.1);display:flex;flex-direction:column;gap:10px;transition:background .1s}
 .fv:hover{background:#f4f4f4}
-.fv-sign{font-family:var(--mono);font-size:11px;font-weight:500;opacity:.25}
+.fv-sign{font-family:var(--mono);font-size:10px;font-weight:500;opacity:.22}
 .fv-code{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;opacity:.3}
-.fv-name{font-size:clamp(14px,1.8vw,22px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
+.fv-name{font-size:clamp(14px,1.8vw,20px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
 .fv-desc{font-size:12px;font-weight:300;line-height:1.65;opacity:.55}
 .fv-div{background:var(--black)}
-.fv-result{padding:40px 32px;background:var(--black);display:flex;flex-direction:column;gap:10px}
+.fv-result{padding:36px 28px;background:var(--black);display:flex;flex-direction:column;gap:10px}
 .fv-result .fv-code,.fv-result .fv-desc{color:var(--white)}
-.fv-result .fv-code{opacity:.3}
+.fv-result .fv-code{opacity:.28}
 .fv-result .fv-name{color:var(--white)}
-.fv-result .fv-desc{opacity:.4}
-.fv-eq{font-family:var(--mono);font-size:11px;font-weight:300;color:var(--white);opacity:.3;letter-spacing:.1em;text-transform:uppercase}
-.narrative-grid{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--black)}
-.nc{padding:44px 36px;border-right:1px solid rgba(0,0,0,.1);display:flex;flex-direction:column;gap:14px}
-.nc:last-child{border-right:none}
-.nc-num{font-family:var(--mono);font-size:9px;font-weight:300;opacity:.2;letter-spacing:.2em}
-.nc-label{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;opacity:.35}
-.nc-title{font-size:clamp(14px,1.8vw,20px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
-.nc-body{font-size:13px;font-weight:300;line-height:1.75;opacity:.65}
-.nc-body em{font-style:normal;font-weight:700;opacity:1;color:var(--black)}
-.voz-table{display:flex;flex-direction:column;border-bottom:1px solid var(--black)}
-.voz-hdr{display:grid;grid-template-columns:1fr 1fr;background:var(--black)}
-.voz-hdr-c{padding:12px 44px;font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--white);opacity:.4}
-.voz-hdr-c:first-child{border-right:1px solid rgba(255,255,255,.08)}
-.voz-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(0,0,0,.07);transition:background .1s}
-.voz-row:hover{background:#f8f8f8}
-.voz-row:last-child{border-bottom:none}
-.voz-no,.voz-yes{padding:18px 44px;font-size:13px;font-weight:300;line-height:1.65;display:flex;align-items:flex-start;gap:12px}
-.voz-no{border-right:1px solid rgba(0,0,0,.07);opacity:.3}
-.voz-no p{text-decoration:line-through;text-decoration-color:rgba(0,0,0,.3)}
-.voz-icon{font-family:var(--mono);font-size:10px;font-weight:700;flex-shrink:0;padding-top:2px}
-.specs-grid{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--black)}
-.spec-b{padding:44px;border-right:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1)}
-.spec-b:nth-child(even){border-right:none}
-.spec-b:nth-last-child(-n+2){border-bottom:none}
-.spec-tag{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;opacity:.3;margin-bottom:18px;display:block}
-.spec-title{font-size:17px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:18px}
-.cs-row{display:flex;align-items:center;gap:14px;margin-bottom:10px}
-.cs-swatch{width:44px;height:44px;flex-shrink:0}
-.cs-name{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
-.cs-hex{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.06em;margin-bottom:2px}
-.cs-use{font-size:11px;font-weight:300;opacity:.45}
-.ts-item{border-top:1px solid rgba(0,0,0,.1);padding-top:14px;margin-top:14px}
-.ts-label{font-family:var(--mono);font-size:9px;font-weight:300;opacity:.3;letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px}
-.ts-bold{font-size:clamp(22px,3.5vw,40px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.9}
-.ts-body{font-size:14px;font-weight:300;line-height:1.7}
-.ts-mono{font-family:var(--mono);font-size:13px;font-weight:400;letter-spacing:.06em}
-.principles{display:flex;flex-direction:column}
-.principle{display:flex;align-items:flex-start;gap:18px;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.07)}
-.principle:last-child{border-bottom:none}
-.p-n{font-family:var(--mono);font-size:9px;font-weight:300;opacity:.2;width:18px;flex-shrink:0;padding-top:2px}
-.p-name{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;min-width:96px;flex-shrink:0}
-.p-desc{font-size:11.5px;font-weight:300;line-height:1.6;opacity:.55}
-.content-doc{display:flex;flex-direction:column;border-bottom:1px solid var(--black)}
-.cd-thead{display:grid;grid-template-columns:100px 180px 1fr 160px 100px;background:var(--black)}
-.cd-th{padding:11px 18px;font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--white);opacity:.45;border-right:1px solid rgba(255,255,255,.06)}
-.cd-th:last-child{border-right:none}
-.cd-row{display:grid;grid-template-columns:100px 180px 1fr 160px 100px;border-bottom:1px solid rgba(0,0,0,.07);transition:background .1s}
-.cd-row:hover{background:#f8f8f8}
-.cd-row:last-child{border-bottom:none}
-.cd-td{padding:16px 18px;font-size:12.5px;font-weight:300;line-height:1.55;color:var(--black);border-right:1px solid rgba(0,0,0,.06);vertical-align:top}
-.cd-td:last-child{border-right:none}
-.ftag{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:var(--black);color:var(--white);padding:3px 7px;display:inline-block}
-.cd-name{font-weight:700}
-.cd-freq{font-family:var(--mono);font-size:10px;opacity:.35}
-.roadmap-grid{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--black)}
-.rm-col{padding:36px 28px;border-right:1px solid rgba(0,0,0,.1);display:flex;flex-direction:column;gap:12px;transition:background .15s,color .15s}
-.rm-col:last-child{border-right:none}
-.rm-col:hover{background:var(--black)}
-.rm-col:hover .rm-num,.rm-col:hover .rm-title,.rm-col:hover .rm-days,.rm-col:hover .rm-item{color:var(--white)}
-.rm-col:hover .rm-days,.rm-col:hover .rm-item{opacity:.4}
-.rm-num{font-size:52px;font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--black);transition:color .15s}
-.rm-days{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;opacity:.3;color:var(--black);transition:color .15s,opacity .15s}
-.rm-title{font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1;color:var(--black);transition:color .15s}
-.rm-items{display:flex;flex-direction:column;gap:6px;margin-top:4px}
-.rm-item{font-size:11.5px;font-weight:300;line-height:1.5;color:var(--black);opacity:.5;display:flex;gap:7px;align-items:baseline;transition:color .15s,opacity .15s}
-.rm-item::before{content:'—';font-size:10px;opacity:.4;flex-shrink:0}
+.fv-result .fv-desc{opacity:.42}
+.fv-eq{font-family:var(--mono);font-size:10px;font-weight:300;color:var(--white);opacity:.28;letter-spacing:.1em}
+
+/* ── TOOL CARDS ──────────────────────────────────────── */
+.tools-section{border-bottom:1px solid var(--black)}
+.tool-card{display:grid;grid-template-columns:260px 1fr;border-bottom:1px solid rgba(0,0,0,.1);transition:background .1s}
+.tool-card:last-child{border-bottom:none}
+.tool-card:hover{background:#f4f4f4}
+.tool-id{padding:36px 32px;border-right:1px solid rgba(0,0,0,.1);display:flex;flex-direction:column;gap:10px}
+.t-num{font-family:var(--mono);font-size:9px;font-weight:300;opacity:.18;letter-spacing:.2em}
+.t-code{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;color:var(--black);background:#f0f0f0;padding:4px 10px;display:inline-block;margin-bottom:4px}
+.t-name{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
+.t-role{font-size:12px;font-weight:300;opacity:.48;line-height:1.5;margin-top:4px}
+.tool-detail{padding:36px 48px;display:flex;flex-direction:column;gap:16px}
+.td-analogy{font-size:13px;font-weight:600;line-height:1.55;border-left:2px solid var(--black);padding-left:14px}
+.td-fn-label{font-family:var(--mono);font-size:9px;font-weight:300;opacity:.28;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.td-fns{display:flex;flex-direction:column;gap:7px}
+.td-fn{font-size:12.5px;font-weight:300;line-height:1.6;display:flex;gap:10px;align-items:baseline}
+.td-fn::before{content:'→';font-family:var(--mono);font-size:10px;opacity:.28;flex-shrink:0}
+.td-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.chip{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--black);padding:4px 10px}
+
+/* ── AGENTS CARDS ────────────────────────────────────── */
+.agents-grid{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--black)}
+.agent-col{padding:36px 28px;border-right:1px solid rgba(0,0,0,.1);display:flex;flex-direction:column;gap:14px;transition:background .15s}
+.agent-col:last-child{border-right:none}
+.agent-col:hover{background:var(--black)}
+.agent-col:hover .ag-n,.agent-col:hover .ag-code,.agent-col:hover .ag-name,.agent-col:hover .ag-role,.agent-col:hover .ag-fn{color:var(--white)}
+.agent-col:hover .ag-n,.agent-col:hover .ag-code,.agent-col:hover .ag-role,.agent-col:hover .ag-fn{opacity:.35}
+.ag-n{font-family:var(--mono);font-size:9px;font-weight:300;opacity:.18;letter-spacing:.2em;color:var(--black);transition:color .15s,opacity .15s}
+.ag-code{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--black);opacity:.7;transition:color .15s,opacity .15s}
+.ag-name{font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1;color:var(--black);transition:color .15s}
+.ag-role{font-size:12px;font-weight:300;opacity:.45;line-height:1.5;color:var(--black);transition:color .15s,opacity .15s}
+.ag-fns{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+.ag-fn{font-size:12px;font-weight:300;line-height:1.55;opacity:.55;display:flex;gap:8px;align-items:baseline;color:var(--black);transition:color .15s,opacity .15s}
+.ag-fn::before{content:'—';font-size:10px;opacity:.35;flex-shrink:0}
+
+/* ── MISSIONS ────────────────────────────────────────── */
+.missions-section{border-bottom:1px solid var(--black)}
+.mission-row{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid rgba(0,0,0,.08);transition:background .1s}
+.mission-row:hover{background:#f8f8f8}
+.mission-row:last-child{border-bottom:none}
+.mr-key{padding:28px 24px 28px 48px;border-right:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;gap:6px;justify-content:center}
+.mr-num{font-family:var(--mono);font-size:10px;font-weight:300;opacity:.18;letter-spacing:.2em}
+.mr-status{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--black);padding:3px 8px;display:inline-block;margin-bottom:2px;width:fit-content}
+.mr-name{font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em}
+.mr-val{padding:28px 48px;display:flex;flex-direction:column;gap:8px;justify-content:center}
+.mr-desc{font-size:13px;font-weight:300;line-height:1.7}
+.mr-desc strong{font-weight:700}
+.mr-meta{font-family:var(--mono);font-size:10px;font-weight:300;opacity:.32;letter-spacing:.06em}
+
+/* ── REFERENTES ──────────────────────────────────────── */
+.ref-grid{display:grid;grid-template-columns:repeat(2,1fr);border-bottom:1px solid var(--black)}
+.ref-col{padding:36px 44px;border-right:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1)}
+.ref-col:nth-child(even){border-right:none}
+.ref-col:nth-last-child(-n+2){border-bottom:none}
+.ref-area{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;opacity:.28;margin-bottom:8px;display:block}
+.ref-name{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:8px}
+.ref-body{font-size:12.5px;font-weight:300;line-height:1.7;opacity:.65}
+
+/* ── PLAN DE ACCIÓN ──────────────────────────────────── */
+.plan-section{border-bottom:1px solid var(--black)}
+.plan-days{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--black)}
+.pd{padding:36px 28px;border-right:1px solid rgba(0,0,0,.1);display:flex;flex-direction:column;gap:12px;transition:background .15s}
+.pd:last-child{border-right:none}
+.pd:hover{background:var(--black)}
+.pd:hover .pd-num,.pd:hover .pd-window,.pd:hover .pd-title,.pd:hover .pd-item{color:var(--white)}
+.pd:hover .pd-window,.pd:hover .pd-item{opacity:.35}
+.pd-num{font-size:52px;font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--black);transition:color .15s}
+.pd-window{font-family:var(--mono);font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;opacity:.28;color:var(--black);transition:color .15s,opacity .15s}
+.pd-title{font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1;color:var(--black);transition:color .15s}
+.pd-items{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+.pd-item{font-size:12px;font-weight:300;line-height:1.55;color:var(--black);opacity:.52;display:flex;gap:8px;align-items:baseline;transition:color .15s,opacity .15s}
+.pd-item::before{content:'—';font-size:10px;opacity:.35;flex-shrink:0}
+.pd-goal{padding:8px 28px;background:#f0f0f0;margin-top:4px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.05em;opacity:.65}
+
+/* ── ACTIVIDADES TABLE ───────────────────────────────── */
+.act-table{display:flex;flex-direction:column;border-bottom:1px solid var(--black)}
+.act-thead{display:grid;grid-template-columns:80px 180px 1fr 160px 100px;background:var(--black)}
+.act-th{padding:11px 16px;font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--white);opacity:.4;border-right:1px solid rgba(255,255,255,.06)}
+.act-th:last-child{border-right:none}
+.act-row{display:grid;grid-template-columns:80px 180px 1fr 160px 100px;border-bottom:1px solid rgba(0,0,0,.07);transition:background .1s}
+.act-row:hover{background:#f8f8f8}
+.act-row:last-child{border-bottom:none}
+.act-td{padding:16px;font-size:12.5px;font-weight:300;line-height:1.55;border-right:1px solid rgba(0,0,0,.06)}
+.act-td:last-child{border-right:none}
+.act-day{font-family:var(--mono);font-size:11px;font-weight:500}
+.act-name{font-weight:700;font-size:13px}
+.act-resp{font-family:var(--mono);font-size:10px;opacity:.38}
+.act-status{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:var(--black);color:var(--white);padding:3px 7px;display:inline-block}
+.act-group-hdr{background:#f0f0f0;border-bottom:1px solid rgba(0,0,0,.1)}
+.act-group-label{padding:9px 16px;font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;opacity:.45;grid-column:1/-1}
+
+/* ── METRICS ─────────────────────────────────────────── */
 .metrics-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--black)}
-.metric-b{padding:44px 36px;border-right:1px solid rgba(0,0,0,.1);display:flex;flex-direction:column;gap:7px}
-.metric-b:last-child{border-right:none}
-.metric-num{font-size:clamp(52px,7vw,88px);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--black)}
-.metric-lbl{font-size:12px;font-weight:300;line-height:1.5;opacity:.45}
-.orgs-list{display:flex;flex-direction:column;border-bottom:1px solid var(--black)}
-.org-item{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:20px;padding:18px 48px;border-bottom:1px solid rgba(0,0,0,.07);transition:background .1s}
-.org-item:last-child{border-bottom:none}
-.org-item:hover{background:#f4f4f4}
-.org-n{font-family:var(--mono);font-size:9px;font-weight:300;opacity:.18;letter-spacing:.1em}
-.org-name{font-size:13.5px;font-weight:700;letter-spacing:.02em}
-.org-role{font-family:var(--mono);font-size:10px;font-weight:300;opacity:.35;letter-spacing:.06em;text-align:right}
-.closing{background:var(--black);display:grid;grid-template-columns:1fr 1fr;min-height:480px}
-.closing-left{padding:72px 48px;border-right:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;justify-content:space-between}
-.closing-eyebrow{font-family:var(--mono);font-size:10px;font-weight:300;color:var(--white);opacity:.18;letter-spacing:.2em;margin-bottom:36px}
-.closing-name{font-size:clamp(48px,7.5vw,104px);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.88;color:var(--white);margin-bottom:20px}
-.closing-ter{display:inline-flex;align-items:center;border:2px solid rgba(255,255,255,.2);overflow:hidden;margin-bottom:32px}
-.closing-ter img{height:40px;width:auto;display:block}
-.closing-manifesto{font-size:13px;font-weight:300;line-height:1.8;color:var(--white);opacity:.35;max-width:380px;margin-bottom:36px}
-.closing-manifesto em{font-style:normal;font-weight:700;opacity:1;color:var(--white)}
-.closing-btns{display:flex;flex-direction:column;gap:10px;max-width:300px}
-.cbtn{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:13px 22px;text-decoration:none;text-align:center;border:1.5px solid;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .1s}
-.cbtn-w{background:var(--white);color:var(--black);border-color:var(--white)}
-.cbtn-w:hover{background:transparent;color:var(--white)}
-.cbtn-o{background:transparent;color:var(--white);border-color:rgba(255,255,255,.2)}
-.cbtn-o:hover{border-color:var(--white)}
-.cbtn-o svg{width:14px;height:14px;flex-shrink:0}
-.closing-right{padding:72px 48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px}
-.closing-portrait{width:clamp(140px,20vw,220px);height:clamp(140px,20vw,220px);border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.12)}
-.closing-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:contrast(1.2) grayscale(100%)}
-.closing-formula{font-family:var(--mono);font-size:10px;font-weight:300;color:var(--white);opacity:.18;text-align:center;line-height:2.2;letter-spacing:.1em}
+.metric{padding:40px 32px;border-right:1px solid rgba(0,0,0,.1);display:flex;flex-direction:column;gap:6px}
+.metric:last-child{border-right:none}
+.metric-num{font-size:clamp(48px,6.5vw,80px);font-weight:900;letter-spacing:-.04em;line-height:1}
+.metric-lbl{font-size:12px;font-weight:300;opacity:.45;line-height:1.5}
+
+/* ── MANIFESTO ───────────────────────────────────────── */
+.manifesto{background:var(--black);padding:80px 48px}
+.manifesto-inner{max-width:820px;margin:0 auto}
+.m-label{font-family:var(--mono);font-size:9px;font-weight:300;color:var(--white);opacity:.18;letter-spacing:.24em;text-transform:uppercase;margin-bottom:36px}
+.m-title{font-size:clamp(32px,5.5vw,72px);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.9;color:var(--white);margin-bottom:36px}
+.m-body{font-size:15px;font-weight:300;line-height:1.85;color:var(--white);opacity:.45;max-width:640px;margin-bottom:36px}
+.m-body em{font-style:normal;font-weight:700;opacity:1;color:var(--white)}
+.m-formula{font-family:var(--mono);font-size:10px;font-weight:300;color:var(--white);opacity:.16;line-height:2.2;letter-spacing:.1em}
+
+/* ── FOOTER ──────────────────────────────────────────── */
 footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05);padding:20px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.footer-l{font-family:var(--mono);font-size:10px;font-weight:300;color:var(--white);opacity:.18;letter-spacing:.1em}
-.footer-l span{opacity:.55}
-.footer-r{display:flex;gap:22px}
-.footer-r a{font-family:var(--mono);font-size:9px;font-weight:300;color:var(--white);opacity:.18;text-decoration:none;letter-spacing:.14em;text-transform:uppercase;transition:opacity .1s}
-.footer-r a:hover{opacity:.6}
+.fl{font-family:var(--mono);font-size:10px;font-weight:300;color:var(--white);opacity:.18;letter-spacing:.1em}
+.fl span{opacity:.55}
+.fr{display:flex;gap:20px}
+.fr a{font-family:var(--mono);font-size:9px;font-weight:300;color:var(--white);opacity:.18;text-decoration:none;letter-spacing:.14em;text-transform:uppercase;transition:opacity .1s}
+.fr a:hover{opacity:.6}
+
+/* ── ANIMATIONS ──────────────────────────────────────── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.hero-text>*{animation:fadeUp .45s ease both}
-.hero-text>*:nth-child(1){animation-delay:.00s}.hero-text>*:nth-child(2){animation-delay:.06s}.hero-text>*:nth-child(3){animation-delay:.10s}.hero-text>*:nth-child(4){animation-delay:.14s}.hero-text>*:nth-child(5){animation-delay:.18s}.hero-text>*:nth-child(6){animation-delay:.22s}.hero-text>*:nth-child(7){animation-delay:.26s}
-@media(max-width:860px){nav{padding:0 20px}.nav-link{display:none}.hero{grid-template-columns:1fr;min-height:auto}.hero-text{padding:72px 20px 48px;border-right:none;border-bottom:1px solid var(--black)}.hero-visual{padding:40px 20px}.sec-hdr{grid-template-columns:52px 1fr}.sec-num{padding:20px 12px}.sec-title-wrap{padding:20px 20px}.data-row{grid-template-columns:1fr}.dr-key{padding:14px 20px;border-right:none;border-bottom:1px solid rgba(0,0,0,.08)}.dr-val{padding:14px 20px}.formula-arch{grid-template-columns:1fr}.fv,.fv-result{border-right:none}.fv-div{height:1px;width:100%}.narrative-grid{grid-template-columns:1fr}.nc{border-right:none}.voz-row{grid-template-columns:1fr}.voz-no{border-right:none}.specs-grid{grid-template-columns:1fr}.spec-b{border-right:none}.roadmap-grid{grid-template-columns:repeat(2,1fr)}.metrics-strip{grid-template-columns:repeat(2,1fr)}.closing{grid-template-columns:1fr}.closing-left{border-right:none;padding:56px 20px}.closing-right{padding:36px 20px}.footer{padding:16px 20px}.org-item{padding:14px 20px;grid-template-columns:28px 1fr}.org-role{display:none}.cd-thead,.cd-row{display:block;overflow-x:auto}.voz-no,.voz-yes{padding:16px 20px}}
+.cover-l>*{animation:fadeUp .45s ease both}
+.cover-l>*:nth-child(1){animation-delay:.04s}
+.cover-l>*:nth-child(2){animation-delay:.08s}
+.cover-l>*:nth-child(3){animation-delay:.12s}
+.cover-l>*:nth-child(4){animation-delay:.17s}
+.cover-l>*:nth-child(5){animation-delay:.22s}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .cover{grid-template-columns:1fr;min-height:auto}
+  .cover-l{padding:72px 20px 48px;border-right:none;border-bottom:1px solid var(--black)}
+  .cover-r{padding:48px 20px}
+  .shdr{grid-template-columns:52px 1fr}.sn{padding:20px 12px}.stw{padding:20px 20px}
+  .tri{grid-template-columns:1fr}.tri-col{border-right:none}
+  .dual{grid-template-columns:1fr}.dc{border-right:none;padding:32px 20px}
+  .frow{grid-template-columns:1fr}.fv,.fv-result{border-right:none}.fv-div{height:1px;width:100%}
+  .tool-card{grid-template-columns:1fr}.tool-id{border-right:none;padding:24px 20px}.tool-detail{padding:20px 20px}
+  .agents-grid{grid-template-columns:1fr}.agent-col{border-right:none}
+  .mission-row{grid-template-columns:1fr}.mr-key{border-right:none;padding:20px 20px}.mr-val{padding:0 20px 20px}
+  .ref-grid{grid-template-columns:1fr}.ref-col{border-right:none}
+  .plan-days{grid-template-columns:1fr}.pd{border-right:none}
+  .metrics-strip{grid-template-columns:repeat(2,1fr)}
+  .act-thead,.act-row{grid-template-columns:1fr;display:block;overflow-x:auto}
+  .drow{grid-template-columns:1fr}.dk{border-right:none;padding:14px 20px}.dv{padding:0 20px 14px}
+  .manifesto{padding:56px 20px}
+  footer{padding:16px 20px;flex-direction:column;align-items:flex-start}
+  .abar{padding:14px 20px}
+}
 </style>
 </head>
 <body>
+
+<!-- ═════════════════════════════════════════════════════
+     NAV
+═════════════════════════════════════════════════════════ -->
 <nav>
-  <div style="display:flex;align-items:center;gap:28px">
-    <a href="#" class="nav-wordmark">Alexander Taborda</a>
-    <span class="nav-mono">~/marca_personal_2026</span>
+  <div style="display:flex;align-items:center;gap:20px">
+    <a href="#" class="nav-name">Proyecto +TER</a>
+    <span class="nav-mono">documento_unificado.md · 2026</span>
   </div>
-  <div class="nav-right">
-    <a href="#identidad" class="nav-link">Identidad</a>
-    <a href="#narrativa" class="nav-link">Narrativa</a>
-    <a href="#roadmap" class="nav-link">Roadmap</a>
-    <a href="#contacto" class="nav-cta">Inscribirme</a>
+  <div class="nav-links">
+    <a href="#fundamentos" class="nl">Fundamentos</a>
+    <a href="#historia" class="nl">Historia</a>
+    <a href="#plataforma" class="nl">Sistema</a>
+    <a href="#agentes" class="nl">Agentes</a>
+    <a href="#misiones" class="nl">Misiones</a>
+    <a href="#plan" class="nl">Plan 70 días</a>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-text">
-    <div class="hero-label">Marca Personal · Estrategia 2026</div>
-    <h1 class="hero-name">Alexander<br>Taborda</h1>
-    <div class="hero-ter-badge"><img src="TER.png" alt="+TER"/></div>
-    <p class="hero-role-line">Caficultor · Co-creador +TER<br>Lider Gremial Cafetero · Andes, Antioquia</p>
-    <p class="hero-statement">"Naci en el campo y desde el construyo soluciones. El liderazgo rural ha dejado de ser folklorico para volverse <strong>tecnico, global y soberano.</strong>"</p>
-    <div class="hero-actions">
-      <a href="#identidad" class="btn btn-fill">Ver la estrategia</a>
-      <a href="#contacto" class="btn btn-line">Unirse al Reto</a>
+<!-- ═════════════════════════════════════════════════════
+     COVER
+═════════════════════════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover-l">
+    <p class="cover-eyebrow">Documento Unificado · Desarrollo Territorial · 2026</p>
+    <h1 class="cover-title">Proyecto<br>+TER</h1>
+    <div class="cover-ter">
+      <img src="TER.png" alt="+TER" />
+    </div>
+    <p class="cover-claim">
+      Un sistema para el desarrollo territorial en el contexto rural colombiano. Construido con líderes, emprendedores y profesionales que usan IA para cultivar la inteligencia que el campo necesita. Desde Andes, Antioquia, para el mundo rural.
+    </p>
+    <div class="cover-meta">
+      <div class="cm-row"><span class="cm-l">Sistema</span><span class="cm-v">+TER — sistema para el desarrollo territorial rural colombiano</span></div>
+      <div class="cm-row"><span class="cm-l">Creador</span><span class="cm-v">Alexander Taborda Álvarez</span></div>
+      <div class="cm-row"><span class="cm-l">Inicio</span><span class="cm-v">07 de Abril 2026 · 19:00h · Hora 0</span></div>
+      <div class="cm-row"><span class="cm-l">Duración</span><span class="cm-v">80 días · 11 semanas · 1 cosecha</span></div>
+      <div class="cm-row"><span class="cm-l">Territorio</span><span class="cm-v">Andes, Antioquia → Colombia → Global Rural</span></div>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-portrait"><img src="ALEXANDER.png" alt="Alexander Taborda"/></div>
-    <div class="eco-badges">
-      <span class="eco-b-fill">+TER</span>
-      <span class="eco-b">TeoBOT</span>
-      <span class="eco-b">Notion</span>
-      <span class="eco-b">Claude</span>
-      <span class="eco-b">Granja DIS</span>
-      <span class="eco-b">MCI</span>
-    </div>
-    <p class="hero-loc">Andes, Antioquia · Colombia · 1640 msnm</p>
+  <div class="cover-r">
+    <p class="toc-label">Índice del documento</p>
+    <a href="#fundamentos" class="toc-item"><span class="ti-n">01</span><span class="ti-name">Fundamentos Conceptuales</span><span class="ti-sub">ADN del proyecto</span></a>
+    <a href="#historia" class="toc-item"><span class="ti-n">01B</span><span class="ti-name">La Historia de Alexander Taborda</span><span class="ti-sub">café · origen · impulso</span></a>
+    <a href="#formula" class="toc-item"><span class="ti-n">02</span><span class="ti-name">La Fórmula +TER</span><span class="ti-sub">C + H + T = IT</span></a>
+    <a href="#plataforma" class="toc-item"><span class="ti-n">03</span><span class="ti-name">Atelier +TER · El Sistema</span><span class="ti-sub">3 herramientas · Mi-Clúster</span></a>
+    <a href="#agentes" class="toc-item"><span class="ti-n">04</span><span class="ti-name">Agentes de Integración</span><span class="ti-sub">líderes + IA · red activa</span></a>
+    <a href="#misiones" class="toc-item"><span class="ti-n">05</span><span class="ti-name">Sistema de Misiones</span><span class="ti-sub">proyectos como misiones</span></a>
+    <a href="#liderazgo" class="toc-item"><span class="ti-n">06</span><span class="ti-name">Liderazgo Bioinspirado</span><span class="ti-sub">naturaleza · IA · territorio</span></a>
+    <a href="#referentes" class="toc-item"><span class="ti-n">07</span><span class="ti-name">Marco de Referentes</span><span class="ti-sub">Carl Sagan · Max-Neef · Dagron</span></a>
+    <a href="#plan" class="toc-item"><span class="ti-n">08</span><span class="ti-name">Plan · 70 Días · Semilla a Almácigo</span><span class="ti-sub">HJC · TeoBOT · D'LINIA FVE</span></a>
+    <p class="cover-quote">
+      "No construir planes de papel.<br>
+      No perder el enfoque.<br>
+      No paralizarnos por el exceso de información.<br>
+      COA: Comunicación → Organización → Acción."
+    </p>
   </div>
 </section>
 
-<div id="identidad">
-  <div class="sec-hdr">
-    <div class="sec-num">01</div>
-    <div class="sec-title-wrap">
-      <h2 class="sec-title">Identidad de Marca</h2>
-      <p class="sec-sub">ADN visual y conceptualizacion · Minimalismo Tecnologico Monocromatico</p>
+<!-- ═════════════════════════════════════════════════════
+     01 · FUNDAMENTOS
+═════════════════════════════════════════════════════════ -->
+<div id="fundamentos">
+  <div class="shdr">
+    <div class="sn">01</div>
+    <div class="stw">
+      <h2 class="stitle">Fundamentos<br>Conceptuales</h2>
+      <p class="sdesc">ADN del proyecto · por qué existimos · qué nos diferencia</p>
     </div>
   </div>
-  <div class="data-row">
-    <div class="dr-key"><span class="dr-key-label">declaracion</span><span class="dr-key-value">Quien soy</span></div>
-    <div class="dr-val"><p>Soy Alexander Taborda, caficultor del suroeste antioqueno. Naci en el campo y desde el construyo soluciones. La tecnologia mas poderosa es la que entiende el territorio, la que habla con el caficultor en su propia lengua, convirtiendo conocimiento local en <strong>inteligencia territorial</strong>.</p></div>
+
+  <div class="abar">
+    <span class="abar-text">El café no se cultiva con urgencia — se cultiva con <strong>intención, paciencia y método.</strong> El Proyecto +TER aplica el mismo principio al desarrollo territorial: <strong>no reaccionar, actuar de forma intencionada y planificada.</strong> COA: Comunicación — Organización — Acción.</span>
   </div>
-  <div class="data-row">
-    <div class="dr-key"><span class="dr-key-label">posicionamiento</span><span class="dr-key-value">Una linea</span></div>
-    <div class="dr-val"><p style="font-weight:600;font-size:15px;">El lider cafetero que usa IA para transformar el campo, sin perder el olor a tierra.</p></div>
+
+  <div class="drow">
+    <div class="dk"><span class="dk-tag">el problema central</span><span class="dk-val">Por qué +TER</span></div>
+    <div class="dv">El campo colombiano no carece de inteligencia ni de esfuerzo. Carece de <strong>sistemas que conecten lo que ya existe</strong> — el conocimiento del territorio, las organizaciones, los líderes, las herramientas — en una arquitectura que produzca resultados colectivos. Seguimos <em>reaccionando</em> cuando podríamos estar <em>construyendo</em>.</div>
   </div>
-  <div class="formula-arch">
-    <div class="fv"><span class="fv-sign">+</span><span class="fv-code">pilar 01</span><span class="fv-name">Tecnologia</span><p class="fv-desc">IA, herramientas digitales y automatizacion aplicada al territorio rural. Notion, TeoBOT, Claude, NotebookLM como infraestructura.</p></div>
-    <div class="fv"><span class="fv-sign">+</span><span class="fv-code">pilar 02</span><span class="fv-name">Economia</span><p class="fv-desc">Emprendimiento rural, economia solidaria y generacion de valor. Modelos sostenibles que nacen del territorio mismo.</p></div>
-    <div class="fv"><span class="fv-sign">+</span><span class="fv-code">pilar 03</span><span class="fv-name">Ruralidad</span><p class="fv-desc">Identidad cafetera, liderazgo gremial y desarrollo territorial. Conocimiento que nace del campo y vuelve a el.</p></div>
+  <div class="drow">
+    <div class="dk"><span class="dk-tag">la propuesta única</span><span class="dk-val">Cocreación en Contexto</span></div>
+    <div class="dv">+TER no trae soluciones de ciudad al campo. <strong>Construye las soluciones desde adentro, con quienes conocen el territorio.</strong> La IA no reemplaza el conocimiento local — lo amplifica. La plataforma no decide — facilita que la comunidad decida con mejor información, más rápido y de forma coordinada.</div>
+  </div>
+  <div class="drow">
+    <div class="dk"><span class="dk-tag">el principio rector</span><span class="dk-val">De lo Personal a lo General</span></div>
+    <div class="dv">AlexanderCaficultor es el punto de partida, no el centro permanente. Su historia como caficultor, líder gremial y constructor de +TER es la prueba de concepto que hace creíble el modelo. <strong>Lo que funciona para un caficultor de Andes puede funcionar para un cafetalero de Etiopía o un cacaotero del Perú.</strong></div>
+  </div>
+  <div class="drow">
+    <div class="dk"><span class="dk-tag">el principio comunicativo</span><span class="dk-val">Una Conversación, No un Discurso</span></div>
+    <div class="dv">La comunicación de +TER no busca impresionar. <strong>Busca mantener y ganar confianza con acciones, con resultados, con capacidad de respuesta.</strong> El café es el centro metafórico — el medio que une mundos, ideas y culturas. Una comunicación que no necesita puestas en escena porque los resultados son la escena.</div>
+  </div>
+
+  <div class="tri" style="border-top:1px solid var(--black)">
+    <div class="tri-col">
+      <span class="tc-n">01</span>
+      <span class="tc-tag">pilar uno</span>
+      <p class="tc-title">+Tecnología</p>
+      <p class="tc-body"><strong>Más</strong> no solo en cantidad — en <em>compatibilidad e identidad</em> con las necesidades del contexto rural. IA, drones, sensores, herramientas digitales que amplifican lo que el campesino ya sabe hacer. La tecnología que no se puede usar en una vereda con señal 2G no es tecnología para el campo.</p>
+    </div>
+    <div class="tri-col">
+      <span class="tc-n">02</span>
+      <span class="tc-tag">pilar dos</span>
+      <p class="tc-title">+Economía</p>
+      <p class="tc-body">Repensar la economía desde el impacto de la tecnología, de las formas de producir, transformar y consumir, del impacto en la naturaleza. <strong>Economía solidaria, emprendimiento rural, generación de valor</strong> que no extrae sino que construye. Referente: <em>Manfred Max-Neef</em> y su economía descalza.</p>
+    </div>
+    <div class="tri-col">
+      <span class="tc-n">03</span>
+      <span class="tc-tag">pilar tres</span>
+      <p class="tc-title">+Ruralidad</p>
+      <p class="tc-body">Identidad cafetera, liderazgo gremial, desarrollo territorial con <strong>concordancia con los retos y desafíos desde lo económico, lo social y lo cultural.</strong> La ruralidad como ventaja competitiva global, no como condición de rezago. El campo como laboratorio del siglo XXI.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════
+     01B · LA HISTORIA DE ALEXANDER
+═════════════════════════════════════════════════════════ -->
+<div id="historia" style="border-top:2px solid var(--black)">
+  <div class="shdr">
+    <div class="sn" style="font-size:8px">01B</div>
+    <div class="stw">
+      <h2 class="stitle">La Historia de<br>Alexander Taborda</h2>
+      <p class="sdesc">el café como hilo conductor · de lo personal a lo territorial · origen e impulso</p>
+    </div>
+  </div>
+
+  <div class="abar">
+    <span class="abar-text">El café no es solo el producto que Alexander cultiva. <strong>Es el lenguaje que conecta los componentes de la Fórmula +TER, da sentido a la narrativa y ancla el sistema en la cultura y el contexto cafetero.</strong> Sin ese anclaje, +TER sería tecnología flotando en el aire. Con él, es raíz.</span>
+  </div>
+
+  <div class="dual">
+    <div class="dc">
+      <span class="dc-tag">el origen · de dónde viene todo</span>
+      <p class="dc-title">Nació en el campo</p>
+      <p class="dc-body">
+        Alexander Taborda Álvarez creció en Andes, Antioquia, en una familia cafetera del suroeste antioqueño. No como metáfora — literalmente entre cafetales, con el olor del café pergamino en la madrugada y el peso de los racimos en la espalda. Esa experiencia no se aprende en ninguna universidad. <strong>Es el activo más valioso que tiene para liderar +TER:</strong> conoce el problema desde adentro, porque es parte de él.
+        <br><br>
+        Esa historia lo llevó a asumir roles de liderazgo gremial cuando todavía era joven productor: presidente del Hogar Juvenil Campesino, representante en la Cooperativa de Caficultores de Andes, estratega en el Comité de Cafeteros de Antioquia, presidente de Dignidad Agropecuaria Colombiana. <em>Cinco organizaciones. Un solo propósito: que el campo tenga voz y tenga herramientas.</em>
+      </p>
+    </div>
+    <div class="dc">
+      <span class="dc-tag">el giro · cuando la tecnología llegó al cafetal</span>
+      <p class="dc-title">El caficultor que descubrió la IA</p>
+      <p class="dc-body">
+        La historia de +TER comienza con una pregunta simple: <strong>¿por qué las herramientas más poderosas del mundo no están disponibles para los que más las necesitan?</strong> Alexander empezó a usar IA no porque alguien se lo enseñara — empezó porque tenía problemas reales que resolver y decidió que la tecnología no era solo para las ciudades.
+        <br><br>
+        Lo que encontró lo cambió todo: la IA no era el problema, era la <em>desconexión entre la tecnología y el contexto territorial</em>. Las herramientas existían. El conocimiento para usarlas en el campo, no. Esa brecha es exactamente lo que +TER cierra. <strong>Alexander no solo es el creador del sistema — es su primera prueba de concepto.</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- El café como conector de la fórmula -->
+  <div class="shdr" style="border-top:1px solid var(--black);border-top-width:1px">
+    <div class="sn" style="font-size:8px">01B.1</div>
+    <div class="stw">
+      <h2 class="stitle" style="font-size:clamp(18px,2.5vw,28px)">El Café Como Conector de la Fórmula</h2>
+      <p class="sdesc">cada componente tiene su raíz en la cultura cafetera</p>
+    </div>
+  </div>
+
+  <div class="tri">
+    <div class="tri-col">
+      <span class="tc-tag">+C · contexto</span>
+      <p class="tc-title">El Cafetal<br>Como MCI</p>
+      <p class="tc-body">
+        Un buen caficultor conoce su finca como nadie: la inclinación del terreno, dónde llega el sol primero, qué lotes producen mejor en año seco. <strong>Ese es el Mapa de Contexto Integrado aplicado al territorio.</strong>
+        <br><br>
+        El café enseña que sin conocimiento del contexto, ninguna tecnología funciona. Una variedad excelente sembrada en el lote equivocado es un fracaso anunciado. <em>El contexto no es detalle — es la base.</em>
+      </p>
+    </div>
+    <div class="tri-col">
+      <span class="tc-tag">+H · habilidades</span>
+      <p class="tc-title">La Renovación<br>Como Aprendizaje</p>
+      <p class="tc-body">
+        Renovar un cafetal no es solo tumbar plantas viejas y sembrar nuevas. Es aprender a leer el suelo, a podar con criterio, a gestionar la sombra. <strong>Las habilidades no se transfieren — se desarrollan haciendo.</strong>
+        <br><br>
+        El café es el maestro más honesto: no hay atajos, no hay fórmulas mágicas. Lo que se cultiva con método y constancia, produce. <em>Lo que se improvisa, se pierde.</em> Ese principio rige el desarrollo de habilidades en +TER.
+      </p>
+    </div>
+    <div class="tri-col">
+      <span class="tc-tag">+T · herramientas</span>
+      <p class="tc-title">La Despulpadora<br>Como IA</p>
+      <p class="tc-body">
+        Nadie discute que una despulpadora bien calibrada hace el trabajo de cincuenta personas en la cosecha. Pero ningún caficultor confunde la herramienta con la habilidad del que la opera. <strong>La IA es la despulpadora del siglo XXI.</strong>
+        <br><br>
+        Potente. Necesaria. Pero sin el caficultor que conoce el punto exacto de madurez de la cereza, la herramienta no produce café de calidad. <em>La IA amplifica — el territorio decide.</em>
+      </p>
+    </div>
+  </div>
+
+  <div class="drow" style="border-top:1px solid var(--black)">
+    <div class="dk"><span class="dk-tag">la metáfora central</span><span class="dk-val">El café conecta mundos</span></div>
+    <div class="dv">El café viajó de Etiopía a Arabia, de Arabia a Europa, de Europa a América — y en cada territorio se adaptó, transformó culturas y creó economías. <strong>+TER propone que la Inteligencia Territorial haga el mismo viaje:</strong> nacer en Andes, adaptarse a Nariño, llegar a Ethiopia, conectar con Vietnam, sin perder la identidad de origen. El café no es solo el producto de Alexander — es <em>el lenguaje universal que hace posible esa conversación global sin que el campo pierda su voz.</em></div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════
+     02 · LA FÓRMULA
+═════════════════════════════════════════════════════════ -->
+<div id="formula" style="border-top:2px solid var(--black)">
+  <div class="shdr">
+    <div class="sn">02</div>
+    <div class="stw">
+      <h2 class="stitle">La Fórmula<br>+TER</h2>
+      <p class="sdesc">la ecuación del desarrollo territorial construida desde adentro</p>
+    </div>
+  </div>
+
+  <div class="frow">
+    <div class="fv">
+      <span class="fv-sign">+C</span>
+      <span class="fv-code">variable uno</span>
+      <span class="fv-name">Conocimiento<br>del Contexto</span>
+      <p class="fv-desc">El MCI como herramienta viva. Actores, recursos, tensiones, oportunidades. La conciencia situacional como primer activo estratégico del territorio. Sin contexto, toda herramienta es ruido.</p>
+    </div>
+    <div class="fv">
+      <span class="fv-sign">+H</span>
+      <span class="fv-code">variable dos</span>
+      <span class="fv-name">Desarrollo de<br>Habilidades</span>
+      <p class="fv-desc">Liderazgo, facilitación, pensamiento estratégico, uso de IA. Habilidades que se construyen haciendo, repitiendo, mejorando — no en el aula, en el territorio. Aprendemos construyendo herramientas que otros usen.</p>
+    </div>
+    <div class="fv">
+      <span class="fv-sign">+T</span>
+      <span class="fv-code">variable tres</span>
+      <span class="fv-name">Integración de<br>Herramientas</span>
+      <p class="fv-desc">IA, TeoBOT, Notion, MCI — herramientas que amplifican sin reemplazar el conocimiento local. La habilidad no está en tener las herramientas: está en saber integrarlas al contexto específico del territorio.</p>
+    </div>
     <div class="fv-div"></div>
-    <div class="fv-result"><span class="fv-eq">=</span><span class="fv-code">resultado</span><span class="fv-name">Inteligencia<br>Territorial</span><p class="fv-desc">La ecuacion del desarrollo rural construida desde adentro.</p></div>
-  </div>
-  <div class="sec-hdr" style="background:var(--white)">
-    <div class="sec-num" style="font-size:9px">01.1</div>
-    <div class="sec-title-wrap"><h2 class="sec-title" style="font-size:clamp(18px,2.5vw,28px)">La Formula +TER</h2></div>
-  </div>
-  <div class="formula-arch">
-    <div class="fv"><span class="fv-code">+C · contexto</span><span class="fv-name" style="font-size:clamp(13px,1.5vw,18px)">Conocimiento<br>del Contexto</span><p class="fv-desc">El MCI — Mapa de Contexto Integrado — como herramienta viva de lectura territorial: actores, recursos, tensiones y oportunidades.</p></div>
-    <div class="fv"><span class="fv-code">+H · habilidades</span><span class="fv-name" style="font-size:clamp(13px,1.5vw,18px)">Desarrollo de<br>Habilidades</span><p class="fv-desc">Liderazgo, facilitacion, pensamiento sistemico. Capacidades que se construyen en la practica territorial.</p></div>
-    <div class="fv"><span class="fv-code">+T · herramientas</span><span class="fv-name" style="font-size:clamp(13px,1.5vw,18px)">Uso de<br>Herramientas</span><p class="fv-desc">Tecnologia que amplifica la capacidad humana sin reemplazar el conocimiento local.</p></div>
-    <div class="fv-div"></div>
-    <div class="fv-result"><span class="fv-eq">=</span><span class="fv-code">resultado verificable</span><span class="fv-name" style="font-size:clamp(15px,1.8vw,22px)">Inteligencia<br>Territorial</span><p class="fv-desc">Un modelo de desarrollo rural construido desde la realidad del territorio.</p></div>
-  </div>
-</div>
-
-<div id="narrativa" style="border-top:1px solid var(--black)">
-  <div class="sec-hdr">
-    <div class="sec-num">02</div>
-    <div class="sec-title-wrap"><h2 class="sec-title">Narrativa</h2><p class="sec-sub">La historia que construye la marca · Tres actos</p></div>
-  </div>
-  <div class="narrative-grid">
-    <div class="nc"><span class="nc-num">01</span><span class="nc-label">Origen · El por que</span><p class="nc-title">De donde vengo</p><p class="nc-body">Creci entre cafetales — literalmente. Y esa experiencia me enseno algo que ninguna universidad ensena: <em>el campo es el laboratorio mas complejo que existe</em>. Lo que falta no es inteligencia en el territorio. Falta conectarla.</p></div>
-    <div class="nc"><span class="nc-num">02</span><span class="nc-label">Tension · El conflicto</span><p class="nc-title">El puente que falta</p><p class="nc-body">La tecnologia avanza y el campo se queda atras, no porque los campesinos sean lentos, sino porque nadie habla su idioma. <em>Yo soy de los dos mundos</em>. Y eso me da una responsabilidad que no puedo ignorar.</p></div>
-    <div class="nc"><span class="nc-num">03</span><span class="nc-label">Transformacion · La mision</span><p class="nc-title">Construyendo +TER</p><p class="nc-body">Estoy construyendo un puente. Se llama +TER. No es una plataforma mas — es una nueva forma de entender el territorio. <em>Desde Andes, Antioquia, para el campo colombiano.</em></p></div>
-  </div>
-
-</div>
-
-<div id="roadmap" style="border-top:1px solid var(--black)">
-  <div class="sec-hdr">
-    <div class="sec-num">03</div>
-    <div class="sec-title-wrap"><h2 class="sec-title">Reto +TER · 80 Dias</h2><p class="sec-sub">Inicio: 07.04.2026 · 19:00 h · Hora 0 · Andes, Antioquia</p></div>
-  </div>
-  <div class="roadmap-grid">
-    <div class="rm-col"><span class="rm-num">01</span><span class="rm-days">Dias 1 – 15</span><p class="rm-title">Fundamentos</p><div class="rm-items"><p class="rm-item">Perfil LinkedIn con narrativa +TER</p><p class="rm-item">Bio Instagram coherente</p><p class="rm-item">Pagina Notion publicada</p><p class="rm-item">Sistema visual aplicado</p></div></div>
-    <div class="rm-col"><span class="rm-num">02</span><span class="rm-days">Dias 16 – 40</span><p class="rm-title">Prueba</p><div class="rm-items"><p class="rm-item">3 publicaciones por semana</p><p class="rm-item">Probar formatos clave</p><p class="rm-item">Medir alcance y conexiones</p><p class="rm-item">Identificar resonancia</p></div></div>
-    <div class="rm-col"><span class="rm-num">03</span><span class="rm-days">Dias 41 – 65</span><p class="rm-title">Amplificacion</p><div class="rm-items"><p class="rm-item">Colaboraciones con lideres</p><p class="rm-item">Primer conversatorio +TER</p><p class="rm-item">Ponencias gremiales</p><p class="rm-item">20 aliados territoriales</p></div></div>
-    <div class="rm-col"><span class="rm-num">04</span><span class="rm-days">Dias 66 – 80</span><p class="rm-title">Cosecha</p><div class="rm-items"><p class="rm-item">Suscriptores TeoBOT activos</p><p class="rm-item">Inscritos Agricultura+IA</p><p class="rm-item">Evaluacion de resultados</p><p class="rm-item">Estrategia siguiente ciclo</p></div></div>
-  </div>
-  <div class="metrics-strip">
-    <div class="metric-b"><span class="metric-num">500</span><p class="metric-lbl">Nuevos seguidores LinkedIn en 80 dias</p></div>
-    <div class="metric-b"><span class="metric-num">20</span><p class="metric-lbl">Conversaciones reales con lideres rurales</p></div>
-    <div class="metric-b"><span class="metric-num">5</span><p class="metric-lbl">Oportunidades o alianzas concretas</p></div>
-    <div class="metric-b"><span class="metric-num">1</span><p class="metric-lbl">Primer cliente AIaaS o inscrito al curso</p></div>
-  </div>
-  <div class="sec-hdr" style="background:var(--white)">
-    <div class="sec-num" style="font-size:9px">03.1</div>
-    <div class="sec-title-wrap"><h2 class="sec-title" style="font-size:clamp(18px,2.5vw,28px)">Ecosistema · 5 Organizaciones</h2><p class="sec-sub">Alexander es el arquitecto · Los proyectos son las obras</p></div>
-  </div>
-  <div class="orgs-list">
-    <div class="org-item"><span class="org-n">01</span><span class="org-name">Empresa Familiar</span><span class="org-role">Project manager · consultor estrategico</span></div>
-    <div class="org-item"><span class="org-n">02</span><span class="org-name">Comite de Cafeteros de Antioquia</span><span class="org-role">Estrategia digital e innovacion · ingreso principal</span></div>
-    <div class="org-item"><span class="org-n">03</span><span class="org-name">Hogar Juvenil Campesino</span><span class="org-role">Presidente · Granja DIS · recuperacion institucional</span></div>
-    <div class="org-item"><span class="org-n">04</span><span class="org-name">Cooperativa de Caficultores de Andes</span><span class="org-role">Representante asociado · plan de recuperacion</span></div>
-    <div class="org-item"><span class="org-n">05</span><span class="org-name">Dignidad Agropecuaria Colombiana</span><span class="org-role">Presidente · desarrollo rural nacional</span></div>
-  </div>
-</div>
-
-<div id="contacto" class="closing">
-  <div class="closing-left">
-    <div>
-      <p class="closing-eyebrow">// Alexander Taborda · Marca Personal · 2026</p>
-      <h2 class="closing-name">Alexander<br>Taborda<br>Alvarez</h2>
-      <div class="closing-ter"><img src="TER.png" alt="+TER"/></div>
-      <p class="closing-manifesto">Caficultor. Lider gremial. Cocreador +TER. <em>Andes, Antioquia, Colombia.</em> Construyendo el puente entre el campo y la tecnologia, desde el territorio mismo y para quienes lo habitan. El liderazgo rural ha dejado de ser folklorico para volverse <em>tecnico, global y soberano.</em></p>
-    </div>
-    <div class="closing-btns">
-      <a href="index.html" class="cbtn cbtn-w">Ver la Landing Page +TER</a>
-      <a href="https://chat.whatsapp.com/ENLACE_COMUNIDAD" class="cbtn cbtn-o" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Unirse a la comunidad WhatsApp
-      </a>
+    <div class="fv-result">
+      <span class="fv-eq">=</span>
+      <span class="fv-code">resultado del proceso</span>
+      <span class="fv-name">Inteligencia<br>Territorial</span>
+      <p class="fv-desc">La memoria evolutiva del sistema. Un activo colectivo que mejora con cada misión, con cada agente que se integra, con cada problema resuelto. No es de Alexander — es de la comunidad.</p>
     </div>
   </div>
-  <div class="closing-right">
-    <div class="closing-portrait"><img src="ALEXANDER.png" alt="Alexander Taborda Alvarez"/></div>
-    <p class="closing-formula">CONTEXTO + HABILIDADES + HERRAMIENTAS<br>═══════════════════════════════════<br>= INTELIGENCIA TERRITORIAL</p>
+
+  <div class="drow" style="border-top:1px solid var(--black)">
+    <div class="dk"><span class="dk-tag">la escalera de valor</span><span class="dk-val">Niveles de IA</span></div>
+    <div class="dv">70 días para subir una escalera de conocimiento y valor: <strong>(1) IA Conversacional</strong> — diálogo y consulta básica. <strong>(2) IA Agente</strong> — delegación de tareas y automatización. <strong>(3) Multi-Agente</strong> — enjambres coordinados como el modelo OPC. <strong>(4) Sistemas Avanzados</strong> — Inteligencia Territorial operativa. <em>Un avance de la comunidad, no de un individuo.</em></div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════
+     03 · PLATAFORMA ATELIER +TER
+═════════════════════════════════════════════════════════ -->
+<div id="plataforma" style="border-top:2px solid var(--black)">
+  <div class="shdr">
+    <div class="sn">03</div>
+    <div class="stw">
+      <h2 class="stitle">Atelier +TER<br>El Sistema</h2>
+      <p class="sdesc">sistema para el desarrollo territorial · tres herramientas · un solo propósito</p>
+    </div>
+  </div>
+
+  <div class="abar">
+    <span class="abar-text"><strong>Atelier:</strong> del francés, taller. Un espacio donde se construyen soluciones, se desarrollan habilidades, se crean herramientas para que otros las usen y mejoren. +TER es el <strong>sistema que integra ese taller con el territorio</strong> — no una plataforma tecnológica, sino un sistema vivo de co-creación para el desarrollo rural colombiano. <strong>Aprendemos haciendo. Repetimos mejorando. Creamos para que otros impulsen la ruralidad desde la cocreación.</strong></span>
+  </div>
+
+  <div class="tools-section">
+
+    <div class="tool-card">
+      <div class="tool-id">
+        <span class="t-num">HERRAMIENTA 01</span>
+        <span class="t-code">TEOBOT</span>
+        <p class="t-name">El<br>Orquestador</p>
+        <p class="t-role">Bot de IA · interfaz de usuario · memoria de misión · seguridad del proceso</p>
+      </div>
+      <div class="tool-detail">
+        <p class="td-analogy">"Un grano de café — diminutivo de Prometeo, pero uno que propone simbiosis entre la cultura cafetera, la naturaleza y la tecnología de nuestro tiempo."</p>
+        <p class="td-fn-label">Capacidades del sistema</p>
+        <div class="td-fns">
+          <p class="td-fn">Mantiene el contexto de cada misión activa — nada se pierde entre sesiones</p>
+          <p class="td-fn">Orquesta y supervisa las acciones de cada agente humano e IA en la misión</p>
+          <p class="td-fn">Genera indicadores de avance y alertas de desviación automáticamente</p>
+          <p class="td-fn">Gestiona la información recopilada con protocolos de seguridad del proceso</p>
+          <p class="td-fn">Interfaz de usuario vía WhatsApp — accesible con señal 2G desde cualquier vereda</p>
+          <p class="td-fn">Aprende y evoluciona con cada misión: cada expediente alimenta su memoria</p>
+        </div>
+        <div class="td-chips">
+          <span class="chip">Contexto</span>
+          <span class="chip">Seguridad</span>
+          <span class="chip">Multi-herramienta</span>
+          <span class="chip">Aprendizaje continuo</span>
+          <span class="chip">WhatsApp API</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-id">
+        <span class="t-num">HERRAMIENTA 02</span>
+        <span class="t-code">MI-CLÚSTER</span>
+        <p class="t-name">El Panel<br>de Control</p>
+        <p class="t-role">Panel de gestión · autorización · coordinación · acceso a recursos de la plataforma</p>
+      </div>
+      <div class="tool-detail">
+        <p class="td-analogy">"El puente de mando. Donde se despliegan las misiones, se autorizan recursos, se coordina el trabajo de los agentes y se monitorea el avance en tiempo real."</p>
+        <p class="td-fn-label">Funciones del panel</p>
+        <div class="td-fns">
+          <p class="td-fn">Despliegue y gestión de misiones activas con cronograma visual integrado</p>
+          <p class="td-fn">Autorización y asignación de recursos de IA, bancos de memoria y herramientas +TER</p>
+          <p class="td-fn">Vista unificada de todos los agentes activos, sus estados y responsabilidades</p>
+          <p class="td-fn">Acceso segmentado según nivel de cada agente de integración</p>
+          <p class="td-fn">Dashboard de métricas: avance de misiones, habilidades desarrolladas, valor generado</p>
+        </div>
+        <div class="td-chips">
+          <span class="chip">Notion</span>
+          <span class="chip">Dashboard</span>
+          <span class="chip">Gestión de accesos</span>
+          <span class="chip">Coordinación</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-id">
+        <span class="t-num">HERRAMIENTA 03</span>
+        <span class="t-code">MCI</span>
+        <p class="t-name">Mapa de Contexto<br>Integrado</p>
+        <p class="t-role">Repositorio de inteligencia territorial · activo colectivo · memoria evolutiva del sistema</p>
+      </div>
+      <div class="tool-detail">
+        <p class="td-analogy">"El sistema nervioso de la plataforma. No solo almacena — procesa, actualiza y entrega información según las necesidades de cada misión. Es el bien común más valioso que la comunidad construye."</p>
+        <p class="td-fn-label">Capas del MCI</p>
+        <div class="td-fns">
+          <p class="td-fn"><strong>Capa 1 · Actores:</strong> organizaciones, líderes, instituciones, aliados — quiénes son, qué hacen, cómo se relacionan</p>
+          <p class="td-fn"><strong>Capa 2 · Recursos:</strong> herramientas disponibles, capacidades de la red, fondos y convocatorias activas</p>
+          <p class="td-fn"><strong>Capa 3 · Contexto:</strong> datos territoriales, clima, precios, riesgos, tendencias — actualizados en tiempo real por TeoBOT</p>
+          <p class="td-fn"><strong>Capa 4 · Expedientes:</strong> aprendizajes de cada misión documentados — la memoria que hace más inteligente cada nuevo proyecto</p>
+          <p class="td-fn">Acceso controlado por misión: cada agente ve lo que necesita, ni más ni menos</p>
+        </div>
+        <div class="td-chips">
+          <span class="chip">Conciencia situacional</span>
+          <span class="chip">Activo colectivo</span>
+          <span class="chip">IT · Inteligencia Territorial</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Protocolo de gestión de proyectos -->
+  <div class="shdr" style="border-top:1px solid var(--black);border-top-width:1px">
+    <div class="sn" style="font-size:8px">03.1</div>
+    <div class="stw">
+      <h2 class="stitle" style="font-size:clamp(18px,2.5vw,28px)">Protocolo de Gestión de Proyectos</h2>
+      <p class="sdesc">4 pasos · de la idea a la misión activa</p>
+    </div>
+  </div>
+  <div class="tri" style="grid-template-columns:repeat(4,1fr)">
+    <div class="tri-col">
+      <span class="tc-n">Paso 01</span>
+      <p class="tc-title">Análisis de<br>Factibilidad</p>
+      <p class="tc-body">La idea se somete a revisión: ¿es viable en este contexto? ¿Qué recursos requiere? ¿Qué riesgos implica? TeoBOT genera el análisis automático basado en el MCI.</p>
+    </div>
+    <div class="tri-col">
+      <span class="tc-n">Paso 02</span>
+      <p class="tc-title">Recursos y<br>Capacidades</p>
+      <p class="tc-body">¿Qué puede aportar la red? ¿Qué agentes tienen las habilidades necesarias? ¿Qué herramientas del sistema están disponibles? Mi-Clúster hace el inventario.</p>
+    </div>
+    <div class="tri-col">
+      <span class="tc-n">Paso 03</span>
+      <p class="tc-title">Mapa de<br>Contexto Inicial</p>
+      <p class="tc-body">Actores, herramientas, agentes, objetivos, flujos de proceso, responsabilidades y cronograma. El MCI entrega el contexto necesario para ejecutar con precisión.</p>
+    </div>
+    <div class="tri-col">
+      <span class="tc-n">Paso 04</span>
+      <p class="tc-title">Lanzamiento<br>de Misión</p>
+      <p class="tc-body">Una vez validados los pasos anteriores de forma lógica, eficiente y efectiva: ventana en Mi-Clúster desplegada. TeoBOT activo. Recursos asignados. Misión iniciada.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════
+     04 · AGENTES DE INTEGRACIÓN
+═════════════════════════════════════════════════════════ -->
+<div id="agentes" style="border-top:2px solid var(--black)">
+  <div class="shdr">
+    <div class="sn">04</div>
+    <div class="stw">
+      <h2 class="stitle">Agentes de<br>Integración</h2>
+      <p class="sdesc">líderes + emprendedores + profesionales que desarrollan habilidades reales</p>
+    </div>
+  </div>
+
+  <div class="drow" style="border-top:1px solid rgba(0,0,0,.08)">
+    <div class="dk"><span class="dk-tag">definición operativa</span><span class="dk-val">Qué es un agente</span></div>
+    <div class="dv">Un agente de integración es un <strong>líder, emprendedor o profesional</strong> que desarrolla habilidades en uso e integración de herramientas de IA, de gestión y pensamiento estratégico, trabajo en red, colaboración y co-creación. Su ventaja sobre otros actores es <em>el conocimiento del contexto</em>. No es un usuario de la plataforma — es un <strong>co-creador y co-dueño de la Inteligencia Territorial.</strong></div>
+  </div>
+  <div class="drow">
+    <div class="dk"><span class="dk-tag">recompensa por participar</span><span class="dk-val">La Propuesta de Valor</span></div>
+    <div class="dv">Los agentes reciben como recompensa por co-crear la plataforma: <strong>apoyo en proyectos y misiones de impacto en sus organizaciones y comunidades.</strong> No pagan por acceso — aportan conocimiento del territorio y reciben capacidad operativa. <em>La red se alimenta de lo que cada agente trae.</em> Cuanto más aporta, más recibe.</div>
+  </div>
+
+  <div class="agents-grid">
+    <div class="agent-col">
+      <span class="ag-n">PERFIL 01</span>
+      <span class="ag-code">LÍDER RURAL</span>
+      <p class="ag-name">El que<br>conoce</p>
+      <p class="ag-role">Líderes gremiales, presidentes de organizaciones, representantes comunitarios</p>
+      <div class="ag-fns">
+        <p class="ag-fn">Aporta: conocimiento profundo del territorio y sus actores</p>
+        <p class="ag-fn">Recibe: herramientas IA para gestionar sus organizaciones con eficiencia</p>
+        <p class="ag-fn">Misiones: fortalecimiento organizacional, incidencia política, comunicación gremial</p>
+      </div>
+    </div>
+    <div class="agent-col">
+      <span class="ag-n">PERFIL 02</span>
+      <span class="ag-code">EMPRENDEDOR</span>
+      <p class="ag-name">El que<br>construye</p>
+      <p class="ag-role">Jóvenes rurales con proyectos productivos, iniciativas de economía solidaria</p>
+      <div class="ag-fns">
+        <p class="ag-fn">Aporta: energía, innovación y disposición a experimentar con IA</p>
+        <p class="ag-fn">Recibe: mentoría estratégica, red de aliados, acceso a herramientas +TER</p>
+        <p class="ag-fn">Misiones: modelos de negocio rurales, acceso a mercados, financiamiento</p>
+      </div>
+    </div>
+    <div class="agent-col">
+      <span class="ag-n">PERFIL 03</span>
+      <span class="ag-code">PROFESIONAL</span>
+      <p class="ag-name">El que<br>conecta</p>
+      <p class="ag-role">Agrónomos, comunicadores, economistas, ingenieros con vocación territorial</p>
+      <div class="ag-fns">
+        <p class="ag-fn">Aporta: conocimiento técnico especializado y visión sistémica</p>
+        <p class="ag-fn">Recibe: proyectos concretos de aplicación, visibilidad y red territorial</p>
+        <p class="ag-fn">Misiones: diagnósticos, diseño de soluciones técnicas, transferencia de conocimiento</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════
+     05 · SISTEMA DE MISIONES
+═════════════════════════════════════════════════════════ -->
+<div id="misiones" style="border-top:2px solid var(--black)">
+  <div class="shdr">
+    <div class="sn">05</div>
+    <div class="stw">
+      <h2 class="stitle">Sistema de<br>Misiones</h2>
+      <p class="sdesc">proyectos que se asumen como misiones · de equipo, de la red, de la plataforma</p>
+    </div>
+  </div>
+
+  <div class="abar">
+    <span class="abar-text">Una misión no es solo un proyecto con un resultado. <strong>Es un proceso de aprendizaje colectivo documentado.</strong> Cada misión enriquece el expediente de la red. Cada obstáculo superado hace más inteligente el sistema. <strong>Lo más importante no es el producto entregado — es lo que la red aprende al entregarlo.</strong></span>
+  </div>
+
+  <div class="missions-section">
+    <div class="mission-row">
+      <div class="mr-key">
+        <span class="mr-num">TIPO A</span>
+        <span class="mr-status">Diagnóstico</span>
+        <p class="mr-name">Misión de<br>Contexto</p>
+      </div>
+      <div class="mr-val">
+        <p class="mr-desc">Mapear actores, recursos y oportunidades en un territorio específico usando el MCI. <strong>Output: diagnóstico territorial estructurado</strong> que sirve de base para todas las misiones siguientes. Es la misión de entrada de todo nuevo agente.</p>
+        <p class="mr-meta">Agente responsable: CAMINO · Duración: 5-10 días · Herramienta: MCI + TeoBOT</p>
+      </div>
+    </div>
+    <div class="mission-row">
+      <div class="mr-key">
+        <span class="mr-num">TIPO B</span>
+        <span class="mr-status">Formación</span>
+        <p class="mr-name">Misión de<br>Habilidades</p>
+      </div>
+      <div class="mr-val">
+        <p class="mr-desc">Desarrollar una habilidad específica en un grupo de agentes: uso de IA, comunicación estratégica, pensamiento sistémico. <strong>Output: habilidad documentada + herramienta creada para que otros la usen.</strong> Aprendemos haciendo y creamos para que otros mejoren.</p>
+        <p class="mr-meta">Agente responsable: TEJIDO · Duración: 10-20 días · Herramienta: Curso + Mi-Clúster</p>
+      </div>
+    </div>
+    <div class="mission-row">
+      <div class="mr-key">
+        <span class="mr-num">TIPO C</span>
+        <span class="mr-status">Ejecución</span>
+        <p class="mr-name">Misión de<br>Impacto</p>
+      </div>
+      <div class="mr-val">
+        <p class="mr-desc">Resolver un problema concreto de una organización o comunidad usando las capacidades, herramientas y ventajas de la red. <strong>Output: solución implementada + expediente de aprendizajes.</strong> El MCI se actualiza, la red se hace más poderosa.</p>
+        <p class="mr-meta">Agente responsable: COSECHA · Duración: variable · Herramienta: Stack completo +TER</p>
+      </div>
+    </div>
+    <div class="mission-row">
+      <div class="mr-key">
+        <span class="mr-num">TIPO D</span>
+        <span class="mr-status">Estratégico</span>
+        <p class="mr-name">Misión de<br>Red</p>
+      </div>
+      <div class="mr-val">
+        <p class="mr-desc">Construir alianzas, activar nuevos agentes, conectar organizaciones que no se conocían pero que comparten objetivos. <strong>Output: red más densa + nuevos nodos de Inteligencia Territorial.</strong> El café de Andes conecta con el cacao del Putumayo, con el maíz del Cauca.</p>
+        <p class="mr-meta">Agente responsable: Alexander · Duración: continuo · Herramienta: Toda la plataforma</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════
+     06 · LIDERAZGO BIOINSPIRADO
+═════════════════════════════════════════════════════════ -->
+<div id="liderazgo" style="border-top:2px solid var(--black)">
+  <div class="shdr">
+    <div class="sn">06</div>
+    <div class="stw">
+      <h2 class="stitle">Liderazgo<br>Bioinspirado</h2>
+      <p class="sdesc">biomimesis · ecosistemas · la naturaleza como maestra del sistema</p>
+    </div>
+  </div>
+
+  <div class="dual">
+    <div class="dc">
+      <span class="dc-tag">el principio fundamental</span>
+      <p class="dc-title">Aprender de la naturaleza</p>
+      <p class="dc-body">
+        La biomimesis nos enseña que los sistemas más eficientes del planeta no fueron diseñados por ingenieros — fueron <strong>evolucionados durante millones de años</strong> generando relaciones que favorecen el desarrollo, la adaptación y la proliferación de la vida. Una libélula vuela más eficiente que cualquier dron. Una colonia de hormigas arrieras resuelve problemas de logística que desafían a los mejores algoritmos. Los hongos construyen redes de comunicación que conectan bosques enteros.
+        <br><br>
+        <em>El liderazgo bioinspirado propone reconocer esta riqueza y traducirla al liderazgo territorial.</em>
+      </p>
+    </div>
+    <div class="dc">
+      <span class="dc-tag">teobot como metáfora</span>
+      <p class="dc-title">Prometeo en el cafetal</p>
+      <p class="dc-body">
+        TeoBOT — diminutivo de Prometeo, pero uno que no roba el fuego: <strong>lo cultiva junto a la comunidad.</strong> Un grano de café que germina, crece y conecta mundos. La metáfora es precisa: el café tardó siglos en llegar de Etiopía a Colombia, y en ese viaje transformó culturas, economías y territorios enteros.
+        <br><br>
+        TeoBOT propone una <em>simbiosis entre la cultura cafetera, la naturaleza y la tecnología de nuestro tiempo</em>. No la tecnología que domina al campesino — la que aprende de él, le devuelve capacidad y lo conecta con el mundo sin que tenga que abandonar su territorio.
+      </p>
+    </div>
+  </div>
+
+  <div class="tri" style="border-top:1px solid var(--black)">
+    <div class="tri-col">
+      <span class="tc-tag">la hormiga arriera</span>
+      <p class="tc-title">Inteligencia<br>Colectiva</p>
+      <p class="tc-body">Ninguna hormiga arriera "dirige" la colonia — pero el sistema funciona con una eficiencia que asombra. <strong>+TER propone el mismo principio:</strong> agentes distribuidos, cada uno con su conocimiento del contexto, coordinados por protocolos claros. La inteligencia emerge de la red, no del centro.</p>
+    </div>
+    <div class="tri-col">
+      <span class="tc-tag">el bosque micorrízico</span>
+      <p class="tc-title">Red de<br>Cooperación</p>
+      <p class="tc-body">Los árboles de un bosque comparten nutrientes y señales de alarma a través de redes de hongos invisibles bajo el suelo. <strong>El MCI es esa red.</strong> Cuando un agente en Andes aprende algo crucial sobre renovación de cafetales, ese conocimiento está disponible para el agente en Pitalito que lo necesita.</p>
+    </div>
+    <div class="tri-col">
+      <span class="tc-tag">la libélula</span>
+      <p class="tc-title">Adaptación<br>Precisa</p>
+      <p class="tc-body">La libélula no nació para un ambiente específico — evolucionó la capacidad de adaptarse a muchos. <strong>El líder bioinspirado hace lo mismo:</strong> no tiene un plan rígido, tiene principios sólidos y la capacidad de adaptarlos al contexto. <em>Actuar de forma intencionada sin perder la flexibilidad que el territorio exige.</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════
+     07 · REFERENTES
+═════════════════════════════════════════════════════════ -->
+<div id="referentes" style="border-top:2px solid var(--black)">
+  <div class="shdr">
+    <div class="sn">07</div>
+    <div class="stw">
+      <h2 class="stitle">Marco de<br>Referentes</h2>
+      <p class="sdesc">los hombros sobre los que +TER construye su visión</p>
+    </div>
+  </div>
+
+  <div class="ref-grid">
+    <div class="ref-col">
+      <span class="ref-area">Divulgación científica</span>
+      <p class="ref-name">Carl Sagan</p>
+      <p class="ref-body">La capacidad de hacer comprensible lo complejo sin simplificarlo en exceso. <strong>+TER comunica la IA, la Inteligencia Territorial y los sistemas complejos</strong> con la misma vocación de Sagan: haciendo que el conocimiento sea accesible sin que pierda su profundidad. El campo merece explicaciones que lo respeten.</p>
+    </div>
+    <div class="ref-col">
+      <span class="ref-area">Neurociencia</span>
+      <p class="ref-name">Rodolfo Llinás</p>
+      <p class="ref-body">El cerebro no procesa la realidad — la predice. <strong>El MCI opera bajo el mismo principio:</strong> no solo registra lo que ocurrió, construye modelos predictivos del territorio. La conciencia situacional de +TER está inspirada en la arquitectura del cerebro que Llinás describió.</p>
+    </div>
+    <div class="ref-col">
+      <span class="ref-area">Economía humanista</span>
+      <p class="ref-name">Manfred Max-Neef</p>
+      <p class="ref-body">La economía descalza — aquella que parte de las necesidades humanas reales, no de los indicadores abstractos. <strong>El pilar +Economía de +TER</strong> se basa en Max-Neef: no buscamos crecimiento por crecimiento, buscamos satisfacción de necesidades legítimas del territorio con el menor costo ecológico posible.</p>
+    </div>
+    <div class="ref-col">
+      <span class="ref-area">Comunicación para el desarrollo</span>
+      <p class="ref-name">Alfonso Gumucio Dagron</p>
+      <p class="ref-body">La comunicación no es transmisión de mensajes — es construcción de diálogos. <strong>La comunicación de +TER</strong> sigue a Dagron: horizontal, participativa, con el café como metáfora del encuentro. No hablamos al campesino — hablamos con él. No llevamos soluciones — construimos juntos la pregunta correcta.</p>
+    </div>
+    <div class="ref-col">
+      <span class="ref-area">Economía política rural</span>
+      <p class="ref-name">Jorge Robledo Castillo</p>
+      <p class="ref-body">La defensa del campo colombiano desde el análisis político y económico riguroso. <strong>El pilar +Ruralidad</strong> reconoce las tensiones estructurales que Robledo ha documentado: la desprotección del agricultor, las asimetrías del mercado, la necesidad de organizaciones fuertes como contrapeso.</p>
+    </div>
+    <div class="ref-col">
+      <span class="ref-area">El principio rector</span>
+      <p class="ref-name">COA · Comunicación → Organización → Acción</p>
+      <p class="ref-body"><strong>No construir planes de papel. No perder el enfoque. No paralizarnos por el exceso de información o el sobre-pensamiento.</strong> El COA es el antídoto a la parálisis por análisis que afecta a tantos proyectos de desarrollo rural. Comunicar para organizar. Organizar para actuar. Actuar para aprender.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════
+     08 · PLAN DE ACCIÓN · 70 DÍAS
+═════════════════════════════════════════════════════════ -->
+<div id="plan" style="border-top:2px solid var(--black)">
+  <div class="shdr">
+    <div class="sn">08</div>
+    <div class="stw">
+      <h2 class="stitle">Plan de Acción<br>70 Días</h2>
+      <p class="sdesc">desde el 17 de Abril · semilla · cultivo · germinador · almácigo</p>
+    </div>
+  </div>
+
+  <div class="abar">
+    <span class="abar-text">El café enseña que todo proceso tiene su tempo. <strong>No se puede quemar etapas.</strong> La semilla necesita el suelo correcto. El cultivo necesita constancia. El germinador necesita cuidado preciso. El almácigo necesita ser el punto de partida, no el destino. <strong>Cada fase de +TER tiene su lógica, su ritmo y su propósito dentro del sistema.</strong></span>
+  </div>
+
+  <div class="plan-section">
+
+    <!-- FASES OVERVIEW -->
+    <div class="plan-days" style="grid-template-columns:repeat(4,1fr)">
+
+      <div class="pd">
+        <span class="pd-num" style="font-size:36px">🌱</span>
+        <span class="pd-window">Días 17–30 · 2 semanas</span>
+        <p class="pd-title">Semilla</p>
+        <div class="pd-items">
+          <p class="pd-item">Identificar ideas e iniciativas como semillas del sistema</p>
+          <p class="pd-item">Reconocer y activar primeros líderes como agentes de integración</p>
+          <p class="pd-item">Instalar los conceptos base: MCI, misiones, Fórmula +TER</p>
+          <p class="pd-item">Primera sesión TeoBOT: historia, protocolo y capacidades básicas</p>
+          <p class="pd-item">HJC como espacio físico de referencia del sistema activado</p>
+          <p class="pd-item">D'LINIA FVE presentado como medio de financiamiento y conexión</p>
+        </div>
+        <p class="pd-goal">Meta: 5 agentes activos · MCI v0.1 · semillas identificadas</p>
+      </div>
+
+      <div class="pd">
+        <span class="pd-num" style="font-size:36px">☕</span>
+        <span class="pd-window">Días 31–50 · 3 semanas</span>
+        <p class="pd-title">Cultivo</p>
+        <div class="pd-items">
+          <p class="pd-item">Desarrollar capacidades: uso básico de IA, pensamiento estratégico, trabajo en red</p>
+          <p class="pd-item">Apropiación de conceptos: agentes, misiones, inteligencia territorial</p>
+          <p class="pd-item">Primeras 3 misiones Tipo A (diagnóstico territorial) en progreso</p>
+          <p class="pd-item">TeoBOT en WhatsApp operativo — primeros usuarios caficultores</p>
+          <p class="pd-item">Validar componente +C: contexto como ventaja estratégica real</p>
+          <p class="pd-item">Primer producto digital lanzado desde el sistema</p>
+        </div>
+        <p class="pd-goal">Meta: 15 agentes · 3 misiones activas · habilidades en desarrollo</p>
+      </div>
+
+      <div class="pd">
+        <span class="pd-num" style="font-size:36px">🔬</span>
+        <span class="pd-window">Días 51–67 · 2.5 semanas</span>
+        <p class="pd-title">Germinador</p>
+        <div class="pd-items">
+          <p class="pd-item">Validar componentes +H y +T de la Fórmula en condiciones reales</p>
+          <p class="pd-item">Primeras misiones Tipo B (habilidades) completadas con expediente</p>
+          <p class="pd-item">MCI enriquecido con aprendizajes de misiones anteriores</p>
+          <p class="pd-item">D'LINIA FVE: primer vínculo activo con economía cafetera regional</p>
+          <p class="pd-item">Mi-Clúster v1 operativo para todos los agentes de la red</p>
+          <p class="pd-item">Comunidad con identidad propia: nombre, protocolos, cultura interna</p>
+        </div>
+        <p class="pd-goal">Meta: Fórmula validada · comunidad con identidad · MCI activo</p>
+      </div>
+
+      <div class="pd">
+        <span class="pd-num" style="font-size:36px">🌿</span>
+        <span class="pd-window">Días 68–87 · 3 semanas</span>
+        <p class="pd-title">Almácigo</p>
+        <div class="pd-items">
+          <p class="pd-item">Consolidar comunidad: 25+ agentes, roles definidos, misiones recurrentes</p>
+          <p class="pd-item">Sistema +TER validado en campo — primeros resultados verificables</p>
+          <p class="pd-item">HJC como nodo físico permanente del sistema en el territorio</p>
+          <p class="pd-item">TeoBOT con historial de misiones — aprendizaje evolutivo documentado</p>
+          <p class="pd-item">D'LINIA FVE con primeras transacciones reales en la red cafetera</p>
+          <p class="pd-item">Lanzamiento público — el almácigo listo para trasplantar al territorio</p>
+        </div>
+        <p class="pd-goal">Meta: 25 agentes · sistema validado · listo para escalar</p>
+      </div>
+
+    </div>
+
+    <!-- MISIONES Y EXPERIENCIAS POR FASE -->
+    <div style="border-top:1px solid var(--black)">
+      <div class="shdr" style="border-top-width:1px">
+        <div class="sn" style="font-size:8px">08.1</div>
+        <div class="stw">
+          <h2 class="stitle" style="font-size:clamp(18px,2.5vw,28px)">Misiones y Experiencias por Fase</h2>
+          <p class="sdesc">HJC · TeoBOT · D'LINIA FVE como pilares del sistema en territorio</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HJC / TEOBOT / D'LINIA -->
+    <div class="tri" style="border-bottom:1px solid var(--black)">
+      <div class="tri-col">
+        <span class="tc-tag">espacio físico</span>
+        <p class="tc-title">HJC — Hogar<br>Juvenil Campesino</p>
+        <p class="tc-body">
+          El HJC no es solo la organización que Alexander preside — es el <strong>espacio físico donde el sistema +TER toma cuerpo en el territorio.</strong> El lugar donde los agentes se reúnen, donde las misiones se ejecutan en campo, donde la Inteligencia Territorial no es un concepto abstracto sino una mesa de trabajo.
+          <br><br>
+          <strong>Semilla:</strong> Primera reunión presencial de agentes. <strong>Cultivo:</strong> Talleres de habilidades. <strong>Germinador:</strong> Misiones de impacto en la comunidad del HJC. <strong>Almácigo:</strong> HJC como nodo permanente del sistema en Andes.
+        </p>
+      </div>
+      <div class="tri-col">
+        <span class="tc-tag">sistema operativo · sábado 02 de Mayo</span>
+        <p class="tc-title">TeoBOT — El Asistente<br>de Confianza</p>
+        <p class="tc-body">
+          <strong>Una historia, un protocolo, capacidades y desarrollo evolutivo.</strong> TeoBOT es el sistema operativo del ecosistema +TER — el punto de contacto entre el caficultor y la Inteligencia Territorial. Su presentación formal es el <em>Sábado 02 de Mayo</em>.
+          <br><br>
+          <strong>Su historia:</strong> nació del nombre de Prometeo, pero propone simbiosis, no robo. Un grano de café que germina y conecta. <strong>Su protocolo:</strong> recibe la necesidad, aplica la Fórmula +TER, entrega el diagnóstico. <strong>Su evolución:</strong> cada misión lo hace más inteligente. Cada caficultor que lo usa le enseña algo nuevo del territorio.
+        </p>
+      </div>
+      <div class="tri-col">
+        <span class="tc-tag">financiamiento y conexión regional</span>
+        <p class="tc-title">D'LINIA FVE —<br>La Economía del Sistema</p>
+        <p class="tc-body">
+          D'LINIA FVE es el <strong>medio de financiamiento y conexión de +TER con la región y su economía cafetera.</strong> No es un actor externo — es el vínculo que hace sostenible el sistema, que conecta las misiones con el flujo económico real del territorio.
+          <br><br>
+          <strong>Semilla:</strong> Presentación del modelo. <strong>Cultivo:</strong> Primeros vínculos con productores. <strong>Germinador:</strong> Transacciones piloto en la red. <strong>Almácigo:</strong> D'LINIA como canal establecido de economía cafetera digital con identidad territorial.
+        </p>
+      </div>
+    </div>
+
+    <!-- TABLA DETALLADA -->
+    <div style="border-top:0">
+      <div class="shdr" style="border-top:1px solid var(--black);border-top-width:1px">
+        <div class="sn" style="font-size:8px">08.2</div>
+        <div class="stw">
+          <h2 class="stitle" style="font-size:clamp(18px,2.5vw,28px)">Actividades Clave · Semana a Semana</h2>
+          <p class="sdesc">responsable · herramienta · estado · verificación</p>
+        </div>
+      </div>
+
+      <div class="act-table">
+        <div class="act-thead">
+          <div class="act-th">Semana</div>
+          <div class="act-th">Actividad</div>
+          <div class="act-th">Descripción</div>
+          <div class="act-th">Responsable · Tool</div>
+          <div class="act-th">Estado</div>
+        </div>
+
+        <!-- SEMILLA -->
+        <div class="act-row act-group-hdr"><div class="act-group-label" style="grid-column:1/-1">🌱 SEMILLA · Días 17–30 · Identificar ideas, líderes y semillas del sistema</div></div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 1<br>17–21 Abr</span></div>
+          <div class="act-td"><span class="act-name">Primeros agentes</span></div>
+          <div class="act-td">Contactar y comprometer los primeros 5 líderes como agentes de integración. Briefing del sistema de misiones y la Fórmula +TER.</div>
+          <div class="act-td"><span class="act-resp">Alexander · WhatsApp · Notion</span></div>
+          <div class="act-td"><span class="act-status">Prioridad 1</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 1</span></div>
+          <div class="act-td"><span class="act-name">HJC activado</span></div>
+          <div class="act-td">HJC como espacio físico de referencia. Primera reunión presencial: presentación del sistema +TER, identificación de ideas-semilla en la comunidad.</div>
+          <div class="act-td"><span class="act-resp">Alexander · HJC · Presencial</span></div>
+          <div class="act-td"><span class="act-status">Espacio físico</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 2<br>22–28 Abr</span></div>
+          <div class="act-td"><span class="act-name">MCI v0.1</span></div>
+          <div class="act-td">Primer MCI: actores, organizaciones y recursos del Suroeste antioqueño mapeados. Documento vivo en Notion compartido con agentes.</div>
+          <div class="act-td"><span class="act-resp">Agentes · NotebookLM · Notion</span></div>
+          <div class="act-td"><span class="act-status">Fundamento</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 2</span></div>
+          <div class="act-td"><span class="act-name">D'LINIA FVE presentado</span></div>
+          <div class="act-td">Presentación formal de D'LINIA como medio de financiamiento y conexión regional. Primeros productores identificados para piloto.</div>
+          <div class="act-td"><span class="act-resp">Alexander · D'LINIA · Red cafetera</span></div>
+          <div class="act-td"><span class="act-status">Economía</span></div>
+        </div>
+
+        <!-- CULTIVO -->
+        <div class="act-row act-group-hdr"><div class="act-group-label" style="grid-column:1/-1">☕ CULTIVO · Días 31–50 · Desarrollar capacidades, apropiar conceptos, validar +C</div></div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 3<br>29 Abr–2 May</span></div>
+          <div class="act-td"><span class="act-name">TeoBOT · Lanzamiento</span></div>
+          <div class="act-td">Presentación formal de TeoBOT — Sábado 02 de Mayo. Historia, protocolo, capacidades y visión de desarrollo evolutivo. Primeros usuarios caficultores.</div>
+          <div class="act-td"><span class="act-resp">Alexander · TeoBOT · WhatsApp API</span></div>
+          <div class="act-td"><span class="act-status">Hito 02/05</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 3–4<br>3–12 May</span></div>
+          <div class="act-td"><span class="act-name">Taller IA básica</span></div>
+          <div class="act-td">Misión Tipo B: uso básico de Claude y NotebookLM para agentes de integración. HJC como espacio de práctica. Resultado: habilidad documentada.</div>
+          <div class="act-td"><span class="act-resp">Agentes · Claude · HJC presencial</span></div>
+          <div class="act-td"><span class="act-status">Misión B</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 4<br>6–12 May</span></div>
+          <div class="act-td"><span class="act-name">3 Misiones A</span></div>
+          <div class="act-td">Diagnósticos territoriales con 3 organizaciones cafeteras locales. Protocolo de 4 pasos aplicado. MCI actualizado con cada resultado.</div>
+          <div class="act-td"><span class="act-resp">Agentes + TeoBOT · MCI</span></div>
+          <div class="act-td"><span class="act-status">Misión A</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 4</span></div>
+          <div class="act-td"><span class="act-name">Producto digital 1</span></div>
+          <div class="act-td">"Guía IA para tu Organización Cafetera" lanzada. Primer ingreso del sistema. COSECHA gestiona onboarding automático.</div>
+          <div class="act-td"><span class="act-resp">COSECHA · TEJIDO · Gumroad</span></div>
+          <div class="act-td"><span class="act-status">Ingreso</span></div>
+        </div>
+
+        <!-- GERMINADOR -->
+        <div class="act-row act-group-hdr"><div class="act-group-label" style="grid-column:1/-1">🔬 GERMINADOR · Días 51–67 · Validar +H y +T, consolidar comunidad con identidad</div></div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 5–6<br>13–26 May</span></div>
+          <div class="act-td"><span class="act-name">Validación +H y +T</span></div>
+          <div class="act-td">Misiones Tipo B completadas con expediente. Validar en campo que las habilidades desarrolladas y las herramientas integradas generan resultados reales.</div>
+          <div class="act-td"><span class="act-resp">Red agentes · Mi-Clúster · MCI</span></div>
+          <div class="act-td"><span class="act-status">Validación</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 6<br>20–26 May</span></div>
+          <div class="act-td"><span class="act-name">D'LINIA piloto</span></div>
+          <div class="act-td">Primer vínculo activo D'LINIA FVE con economía cafetera regional. Transacciones piloto en la red de agentes. Resultado verificable documentado.</div>
+          <div class="act-td"><span class="act-resp">D'LINIA · Alexander · Red cafetera</span></div>
+          <div class="act-td"><span class="act-status">Economía</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 6</span></div>
+          <div class="act-td"><span class="act-name">Mi-Clúster v1</span></div>
+          <div class="act-td">Panel de control operativo. Acceso para todos los agentes. Misiones activas visibles. Comunidad con identidad propia: nombre, protocolos, cultura.</div>
+          <div class="act-td"><span class="act-resp">Alexander · Notion API</span></div>
+          <div class="act-td"><span class="act-status">Sistema</span></div>
+        </div>
+
+        <!-- ALMÁCIGO -->
+        <div class="act-row act-group-hdr"><div class="act-group-label" style="grid-column:1/-1">🌿 ALMÁCIGO · Días 68–87 · Consolidar comunidad, validar sistema, preparar trasplante</div></div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 7–8<br>27 May–9 Jun</span></div>
+          <div class="act-td"><span class="act-name">25 agentes activos</span></div>
+          <div class="act-td">Red consolidada: 25 agentes con roles definidos, misiones asignadas y resultados verificables. Sistema +TER validado en campo con comunidad real.</div>
+          <div class="act-td"><span class="act-resp">Alexander · Red · Mi-Clúster</span></div>
+          <div class="act-td"><span class="act-status">Comunidad</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 8–9<br>3–16 Jun</span></div>
+          <div class="act-td"><span class="act-name">3 Misiones C</span></div>
+          <div class="act-td">Misiones de impacto real completadas. Expedientes en MCI. TeoBOT con historial de misiones — aprendizaje evolutivo documentado y visible.</div>
+          <div class="act-td"><span class="act-resp">Red completa · Stack +TER · HJC</span></div>
+          <div class="act-td"><span class="act-status">Misión C</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-td"><span class="act-day">Sem 9–10<br>17–25 Jun</span></div>
+          <div class="act-td"><span class="act-name">Lanzamiento público</span></div>
+          <div class="act-td">Atelier +TER lanzado públicamente. Landing activa. Ponencia en espacio gremial. Evaluación del ciclo. El almácigo listo para trasplantar al territorio.</div>
+          <div class="act-td"><span class="act-resp">Alexander · toda la red +TER</span></div>
+          <div class="act-td"><span class="act-status">Hito Final</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="metrics-strip">
+      <div class="metric">
+        <span class="metric-num">25</span>
+        <p class="metric-lbl">Agentes de integración activos en la red al día 87</p>
+      </div>
+      <div class="metric">
+        <span class="metric-num">9</span>
+        <p class="metric-lbl">Misiones completadas con expediente documentado en el MCI</p>
+      </div>
+      <div class="metric">
+        <span class="metric-num">3</span>
+        <p class="metric-lbl">Pilares validados — HJC · TeoBOT · D'LINIA FVE operativos</p>
+      </div>
+      <div class="metric">
+        <span class="metric-num">IT</span>
+        <p class="metric-lbl">Inteligencia Territorial activa — la comunidad como primer activo</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════
+     MANIFESTO FINAL
+═════════════════════════════════════════════════════════ -->
+<div class="manifesto">
+  <div class="manifesto-inner">
+    <p class="m-label">// la declaración · por qué esto importa</p>
+    <h2 class="m-title">
+      <span>El campo</span>
+      <span>no espera</span>
+      <span>permiso.</span>
+    </h2>
+    <p class="m-body">
+      La Inteligencia Territorial no es un concepto académico. Es la suma de lo que ya existe en el territorio: el caficultor que conoce su finca como nadie, la lideresa que sabe quién confía en quién en la vereda, el joven que aprendió a usar IA en su celular sin que nadie se lo enseñara formalmente.
+      <br><br>
+      +TER no inventa nada. <em>Conecta lo que ya existe, le da memoria, le da velocidad, le da alcance.</em> Lo que el bosque hace con los hongos — compartir nutrientes, señales, estrategias de supervivencia — Atelier +TER lo hace con el conocimiento territorial.
+      <br><br>
+      <em>El futuro de Colombia se cultiva. El campo no puede esperar — es donde plantamos las semillas y hacemos posible un nuevo capítulo en la historia de Colombia. Lo hacemos en común, lo hacemos con Inteligencia Territorial.</em>
+    </p>
+    <p class="m-formula">
+      CONOCIMIENTO DEL CONTEXTO + DESARROLLO DE HABILIDADES + INTEGRACIÓN DE HERRAMIENTAS<br>
+      ═══════════════════════════════════════════════════════════════════════════════════<br>
+      = INTELIGENCIA TERRITORIAL · LA MEMORIA EVOLUTIVA DEL SISTEMA
+    </p>
   </div>
 </div>
 
 <footer>
-  <p class="footer-l">Alexander Taborda · <span>+TER · Andes, Antioquia · 2026</span></p>
-  <div class="footer-r">
-    <a href="#identidad">Identidad</a>
-    <a href="#narrativa">Narrativa</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#contacto">Contacto</a>
+  <p class="fl">Alexander Taborda · <span>Proyecto +TER · Documento Unificado · 2026</span></p>
+  <div class="fr">
+    <a href="#fundamentos">Fundamentos</a>
+    <a href="#historia">Historia</a>
+    <a href="#plataforma">Sistema</a>
+    <a href="#agentes">Agentes</a>
+    <a href="#misiones">Misiones</a>
+    <a href="#plan">Plan 70 días</a>
   </div>
 </footer>
+
 </body>
 </html>
